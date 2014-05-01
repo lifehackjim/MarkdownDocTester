@@ -5,6 +5,7 @@ __pycache__/
 # C extensions
 *.so
 
+.DS_Store
 # Distribution / packaging
 .Python
 env/
@@ -18,6 +19,7 @@ lib64/
 parts/
 sdist/
 var/
+OUT/
 *.egg-info/
 .installed.cfg
 *.egg
