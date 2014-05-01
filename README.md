@@ -26,7 +26,7 @@ optional arguments:
                         times an hour). (default: )
   -o OUTDIR, --outdir OUTDIR
                         The output directory for the Markdown and HTML files
-                        (default: /tmp/2014_04_30-23_19_15)
+                        (default: /tmp/2014_04_30-23_21_34)
   -l [LOGFILE], --log [LOGFILE]
                         Save the log to a file (if no file supplied, will be
                         saved to $date.$prog.log) (default: False)
@@ -81,7 +81,7 @@ Darwin Calabacita.local 13.1.0 Darwin Kernel Version 13.1.0: Wed Apr  2 23:52:02
 
 ## Running a command and checking the exit code is 0
 
-  * If you include a definition 'validtests' and specify 'exitcode' as one of the tests, it will by default check to see if the command
+  * If you include a definition 'validtests' and specify 'exitcode' as one of the tests, it will by default check to see if the command exits with an exitcode of 0
   * If you include a definition 'exitcode' and specify an exitcode, it will check for that exit code instead of 0
 
 ```bash
@@ -122,9 +122,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87081481        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:19 /tmp/foo
-87081610        8 -rw-r--r--    1 jolsen           wheel                  15 Apr 30 23:19 /tmp/foo/test
-87081482        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:17 /tmp/foo/test.json
+87081613        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:21 /tmp/foo
+87081710        8 -rw-r--r--    1 jolsen           wheel                  15 Apr 30 23:21 /tmp/foo/test
+87081614        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:19 /tmp/foo/test.json
 ```
 
   * Validation Test: file_exist
@@ -144,9 +144,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87081481        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:19 /tmp/foo
-87081610        8 -rw-r--r--    1 jolsen           wheel                  30 Apr 30 23:19 /tmp/foo/test
-87081482        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:17 /tmp/foo/test.json
+87081613        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:21 /tmp/foo
+87081710        8 -rw-r--r--    1 jolsen           wheel                  30 Apr 30 23:21 /tmp/foo/test
+87081614        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:19 /tmp/foo/test.json
 ```
 
   * Validation Test: filematch
@@ -166,9 +166,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87081481        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:19 /tmp/foo
-87081610        8 -rw-r--r--    1 jolsen           wheel                  45 Apr 30 23:19 /tmp/foo/test
-87081482        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:17 /tmp/foo/test.json
+87081613        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:21 /tmp/foo
+87081710        8 -rw-r--r--    1 jolsen           wheel                  45 Apr 30 23:21 /tmp/foo/test
+87081614        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:19 /tmp/foo/test.json
 ```
 
   * Validation Test: nofilematch
@@ -189,8 +189,8 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87081611        0 drwxr-xr-x    3 jolsen           wheel                 102 Apr 30 23:19 /tmp/foo
-87081612        8 -rw-r--r--    1 jolsen           wheel                  15 Apr 30 23:19 /tmp/foo/test
+87081711        0 drwxr-xr-x    3 jolsen           wheel                 102 Apr 30 23:21 /tmp/foo
+87081712        8 -rw-r--r--    1 jolsen           wheel                  15 Apr 30 23:21 /tmp/foo/test
 ```
 
   * Validation Test: exitcode
@@ -203,7 +203,7 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
   * `contentfilename1: /tmp/foo/test.json`
   * `contenttype1: json`
   * `contenttext1: { "test": "blah" }`
-  * this would create a file in /tmp/foo/test.json before running the 'cmd'. when displaying the content block, contenttype will be added into the code fencing blocks
+  * this would create a file in /tmp/foo/test.json before running 'cmd'. when displaying the content block, contenttype will be added into the code fencing blocks
 
  * Content File: /tmp/foo/test.json
 
@@ -218,8 +218,8 @@ find /tmp/foo -ls
 ```
 
 ```
-87081613        0 drwxr-xr-x    3 jolsen           wheel                 102 Apr 30 23:19 /tmp/foo
-87081614        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:19 /tmp/foo/test.json
+87081713        0 drwxr-xr-x    3 jolsen           wheel                 102 Apr 30 23:21 /tmp/foo
+87081714        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:21 /tmp/foo/test.json
 ```
 
   * Validation Test: file_exist
@@ -241,7 +241,7 @@ ls -l /tmp/foo /does_not_exist
 ```
 /tmp/foo:
 total 8
--rw-r--r--  1 jolsen  wheel  18 Apr 30 23:19 test.json
+-rw-r--r--  1 jolsen  wheel  18 Apr 30 23:21 test.json
 ```
 
 ```STDERR
@@ -261,4 +261,4 @@ ls: /does_not_exist: No such file or directory
   * The tests specified in 'validtests' are methods defined in the MDTest class
   * Any test specified just needs to exist as a method that begins with 'val_test_'. The current section is passed into each test method, so adding new definitions that tests rely on is rather easy.
 
-###### generated by: `md_doctester v1.4.3`, date: Wed Apr 30 23:19:16 2014 EDT, Contact info: **Jim Olsen <jim.olsen@lifehack.com>**
+###### generated by: `md_doctester v1.4.3`, date: Wed Apr 30 23:21:34 2014 EDT, Contact info: **Jim Olsen <jim.olsen@lifehack.com>**
