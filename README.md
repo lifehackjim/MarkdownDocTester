@@ -26,7 +26,7 @@ optional arguments:
                         times an hour). (default: )
   -o OUTDIR, --outdir OUTDIR
                         The output directory for the Markdown and HTML files
-                        (default: /tmp/2014_04_30-23_06_01)
+                        (default: /tmp/2014_04_30-23_10_22)
   -l [LOGFILE], --log [LOGFILE]
                         Save the log to a file (if no file supplied, will be
                         saved to $date.$prog.log) (default: False)
@@ -45,7 +45,7 @@ optional arguments:
 
 # Reason for MDT
 
-  * [Documentation Driven Development][http://tom.preston-werner.com/2010/08/23/readme-driven-development.html]
+  * [Documentation Driven Development](http://tom.preston-werner.com/2010/08/23/readme-driven-development.html)
   * I wanted a quick and simple way to create documentation for the myriad of scripts I write during the course of my work.
   * I wanted documentation in both HTML and markdown format.
   * I also wanted to be able to test my scripts in a consistent manner.
@@ -122,9 +122,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87080491        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:06 /tmp/foo
-87080508        8 -rw-r--r--    1 jolsen           wheel                  15 Apr 30 23:06 /tmp/foo/test
-87080492        0 -rw-r--r--    1 jolsen           wheel                   0 Apr 30 23:04 /tmp/foo/test.json
+87080532        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:10 /tmp/foo
+87080863        8 -rw-r--r--    1 jolsen           wheel                  15 Apr 30 23:10 /tmp/foo/test
+87080533        0 -rw-r--r--    1 jolsen           wheel                   0 Apr 30 23:06 /tmp/foo/test.json
 ```
 
   * Validation Test: file_exist
@@ -144,9 +144,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87080491        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:06 /tmp/foo
-87080508        8 -rw-r--r--    1 jolsen           wheel                  30 Apr 30 23:06 /tmp/foo/test
-87080492        0 -rw-r--r--    1 jolsen           wheel                   0 Apr 30 23:04 /tmp/foo/test.json
+87080532        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:10 /tmp/foo
+87080863        8 -rw-r--r--    1 jolsen           wheel                  30 Apr 30 23:10 /tmp/foo/test
+87080533        0 -rw-r--r--    1 jolsen           wheel                   0 Apr 30 23:06 /tmp/foo/test.json
 ```
 
   * Validation Test: filematch
@@ -166,9 +166,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87080491        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:06 /tmp/foo
-87080508        8 -rw-r--r--    1 jolsen           wheel                  45 Apr 30 23:06 /tmp/foo/test
-87080492        0 -rw-r--r--    1 jolsen           wheel                   0 Apr 30 23:04 /tmp/foo/test.json
+87080532        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:10 /tmp/foo
+87080863        8 -rw-r--r--    1 jolsen           wheel                  45 Apr 30 23:10 /tmp/foo/test
+87080533        0 -rw-r--r--    1 jolsen           wheel                   0 Apr 30 23:06 /tmp/foo/test.json
 ```
 
   * Validation Test: nofilematch
@@ -188,8 +188,8 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87080509        0 drwxr-xr-x    3 jolsen           wheel                 102 Apr 30 23:06 /tmp/foo
-87080510        8 -rw-r--r--    1 jolsen           wheel                  15 Apr 30 23:06 /tmp/foo/test
+87080864        0 drwxr-xr-x    3 jolsen           wheel                 102 Apr 30 23:10 /tmp/foo
+87080865        8 -rw-r--r--    1 jolsen           wheel                  15 Apr 30 23:10 /tmp/foo/test
 ```
 
   * Validation Test: exitcode
@@ -215,8 +215,8 @@ find /tmp/foo -ls
 ```
 
 ```
-87080511        0 drwxr-xr-x    3 jolsen           wheel                 102 Apr 30 23:06 /tmp/foo
-87080512        0 -rw-r--r--    1 jolsen           wheel                   0 Apr 30 23:06 /tmp/foo/test.json
+87080866        0 drwxr-xr-x    3 jolsen           wheel                 102 Apr 30 23:10 /tmp/foo
+87080867        0 -rw-r--r--    1 jolsen           wheel                   0 Apr 30 23:10 /tmp/foo/test.json
 ```
 
   * Validation Test: file_exist
@@ -238,7 +238,7 @@ ls -l /tmp/foo /does_not_exist
 ```
 /tmp/foo:
 total 0
--rw-r--r--  1 jolsen  wheel  0 Apr 30 23:06 test.json
+-rw-r--r--  1 jolsen  wheel  0 Apr 30 23:10 test.json
 ```
 
 ```STDERR
@@ -258,4 +258,4 @@ ls: /does_not_exist: No such file or directory
   * The tests specified in 'validtests' are methods defined on on the MDTest class
   * Any test specified just needs to exist as a method that begins with 'val_test_'. The current section is passed into each test method, so adding new definitions that tests rely on is rather easy.
 
-###### generated by: `md_doctester v1.4.3`, date: Wed Apr 30 23:06:01 2014 EDT, Contact info: **Jim Olsen <jim.olsen@lifehack.com>**
+###### generated by: `md_doctester v1.4.3`, date: Wed Apr 30 23:10:22 2014 EDT, Contact info: **Jim Olsen <jim.olsen@lifehack.com>**
