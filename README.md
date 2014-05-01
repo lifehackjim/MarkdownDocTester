@@ -26,7 +26,7 @@ optional arguments:
                         times an hour). (default: )
   -o OUTDIR, --outdir OUTDIR
                         The output directory for the Markdown and HTML files
-                        (default: /tmp/2014_04_30-23_16_53)
+                        (default: /tmp/2014_04_30-23_17_59)
   -l [LOGFILE], --log [LOGFILE]
                         Save the log to a file (if no file supplied, will be
                         saved to $date.$prog.log) (default: False)
@@ -122,9 +122,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87081336        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:16 /tmp/foo
-87081405        8 -rw-r--r--    1 jolsen           wheel                  15 Apr 30 23:16 /tmp/foo/test
-87081337        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:15 /tmp/foo/test.json
+87081408        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:17 /tmp/foo
+87081477        8 -rw-r--r--    1 jolsen           wheel                  15 Apr 30 23:17 /tmp/foo/test
+87081409        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:16 /tmp/foo/test.json
 ```
 
   * Validation Test: file_exist
@@ -144,9 +144,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87081336        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:16 /tmp/foo
-87081405        8 -rw-r--r--    1 jolsen           wheel                  30 Apr 30 23:16 /tmp/foo/test
-87081337        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:15 /tmp/foo/test.json
+87081408        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:17 /tmp/foo
+87081477        8 -rw-r--r--    1 jolsen           wheel                  30 Apr 30 23:17 /tmp/foo/test
+87081409        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:16 /tmp/foo/test.json
 ```
 
   * Validation Test: filematch
@@ -166,9 +166,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87081336        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:16 /tmp/foo
-87081405        8 -rw-r--r--    1 jolsen           wheel                  45 Apr 30 23:16 /tmp/foo/test
-87081337        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:15 /tmp/foo/test.json
+87081408        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:17 /tmp/foo
+87081477        8 -rw-r--r--    1 jolsen           wheel                  45 Apr 30 23:17 /tmp/foo/test
+87081409        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:16 /tmp/foo/test.json
 ```
 
   * Validation Test: nofilematch
@@ -189,8 +189,8 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87081406        0 drwxr-xr-x    3 jolsen           wheel                 102 Apr 30 23:16 /tmp/foo
-87081407        8 -rw-r--r--    1 jolsen           wheel                  15 Apr 30 23:16 /tmp/foo/test
+87081479        0 drwxr-xr-x    3 jolsen           wheel                 102 Apr 30 23:17 /tmp/foo
+87081480        8 -rw-r--r--    1 jolsen           wheel                  15 Apr 30 23:17 /tmp/foo/test
 ```
 
   * Validation Test: exitcode
@@ -200,10 +200,10 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ## Creating Content BEFORE running a command
 
   * You can create content by defining 'contentfilenameN', 'contenttypeN', and 'contenttextN', where N is the same for each definition. For example:
-  * contentfilename1: /tmp/foo/test.json
-  * contenttype1: json
-  * contenttext: { "test": "blah" }
-  * -- this would create a json a json file in /tmp/foo/test.json before running the 'cmd'
+  * `contentfilename1: /tmp/foo/test.json`
+  * `contenttype1: json`
+  * `contenttext1: { "test": "blah" }`
+  * this would create a json a json file in /tmp/foo/test.json before running the 'cmd'
 
  * Content File: /tmp/foo/test.json
 
@@ -218,8 +218,8 @@ find /tmp/foo -ls
 ```
 
 ```
-87081408        0 drwxr-xr-x    3 jolsen           wheel                 102 Apr 30 23:16 /tmp/foo
-87081409        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:16 /tmp/foo/test.json
+87081481        0 drwxr-xr-x    3 jolsen           wheel                 102 Apr 30 23:17 /tmp/foo
+87081482        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:17 /tmp/foo/test.json
 ```
 
   * Validation Test: file_exist
@@ -241,7 +241,7 @@ ls -l /tmp/foo /does_not_exist
 ```
 /tmp/foo:
 total 8
--rw-r--r--  1 jolsen  wheel  18 Apr 30 23:16 test.json
+-rw-r--r--  1 jolsen  wheel  18 Apr 30 23:17 test.json
 ```
 
 ```STDERR
@@ -261,4 +261,4 @@ ls: /does_not_exist: No such file or directory
   * The tests specified in 'validtests' are methods defined in the MDTest class
   * Any test specified just needs to exist as a method that begins with 'val_test_'. The current section is passed into each test method, so adding new definitions that tests rely on is rather easy.
 
-###### generated by: `md_doctester v1.4.3`, date: Wed Apr 30 23:16:53 2014 EDT, Contact info: **Jim Olsen <jim.olsen@lifehack.com>**
+###### generated by: `md_doctester v1.4.3`, date: Wed Apr 30 23:17:59 2014 EDT, Contact info: **Jim Olsen <jim.olsen@lifehack.com>**
