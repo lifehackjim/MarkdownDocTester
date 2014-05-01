@@ -45,7 +45,7 @@ optional arguments:
 
 # Reason for MDT
 
-  * [Documentation Driven Development][http://tom.preston-werner.com/2010/08/23/readme-driven-development.html]
+  * [Documentation Driven Development](http://tom.preston-werner.com/2010/08/23/readme-driven-development.html)
   * I wanted a quick and simple way to create documentation for the myriad of scripts I write during the course of my work.
   * I wanted documentation in both HTML and markdown format.
   * I also wanted to be able to test my scripts in a consistent manner.
