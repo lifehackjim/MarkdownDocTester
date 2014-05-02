@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>body
+{
+  font-size:15px;
+  line-height:1.7;
+  overflow-x:hidden;
+
+    background-color: white;
+    border-radius: 3px;
+    border: 3px solid #EEE;
+    box-shadow: inset 0 0 0 1px #CECECE;
+    font-family: Helvetica, arial, freesans, clean, sans-serif;
+    max-width: 912px;
+    padding: 30px;
+    margin: 2em auto;
+
+    color:#333333;
+}
+
+
+.body-classic{
+  color:#444;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+  font-size:16px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 1em;
+  outline: 1300px solid #FAFAFA;
+}
+
+body>:first-child
+{
+  margin-top:0!important;
+}
+
+body>:last-child
+{
+  margin-bottom:0!important;
+}
+
+blockquote,dl,ol,p,pre,table,ul {
+  border: 0;
+  margin: 15px 0;
+  padding: 0;
+}
+
+body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+body a:hover {
+  text-decoration: underline;
+}
+
+body a.absent
+{
+  color:#c00;
+}
+
+body a.anchor
+{
+  display:block;
+  padding-left:30px;
+  margin-left:-30px;
+  cursor:pointer;
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0
+}
+
+/*h4,h5,h6{ font-weight: bold; }*/
+
+.octicon{
+  font:normal normal 16px sans-serif;
+  width: 1em;
+  height: 1em;
+  line-height:1;
+  display:inline-block;
+  text-decoration:none;
+  -webkit-font-smoothing:antialiased
+}
+
+.octicon-link {
+  background: url("data:image/svg+xml;utf8,<?xml version='1.0' standalone='no'?> <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'> <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 832'> <metadata>Copyright (C) 2013 by GitHub</metadata> <!-- scale(0.01565557729941) --> <path transform='' d='M768 64h-192s-254 0-256 256c0 22 3 43 8 64h137c-11-19-18-41-18-64 0-128 128-128 128-128h192s128 0 128 128-128 128-128 128 0 64-64 128h64s256 0 256-256-256-256-256-256z m-72 192h-137c11 19 18 41 18 64 0 128-128 128-128 128h-192s-128 0-128-128 128-128 128-128-4-65 66-128h-66s-256 0-256 256 256 256 256 256h192s256 0 256-256c0-22-4-44-8-64z'/> </svg>");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.octicon-link:before{
+  content:'\a0';
+}
+
+body h1,body h2,body h3,body h4,body h5,body h6{
+  margin:1em 0 15px;
+  padding:0;
+  font-weight:bold;
+  line-height:1.7;
+  cursor:text;
+  position:relative
+}
+
+body h1 .octicon-link,body h2 .octicon-link,body h3 .octicon-link,body h4 .octicon-link,body h5 .octicon-link,body h6 .octicon-link{
+  display:none;
+  color:#000
+}
+
+body h1:hover a.anchor,body h2:hover a.anchor,body h3:hover a.anchor,body h4:hover a.anchor,body h5:hover a.anchor,body h6:hover a.anchor{
+  text-decoration:none;
+  line-height:1;
+  padding-left:0;
+  margin-left:-22px;
+  top:15%
+}
+
+body h1:hover a.anchor .octicon-link,body h2:hover a.anchor .octicon-link,body h3:hover a.anchor .octicon-link,body h4:hover a.anchor .octicon-link,body h5:hover a.anchor .octicon-link,body h6:hover a.anchor .octicon-link{
+  display:inline-block
+}
+
+body h1 tt,body h1 code,body h2 tt,body h2 code,body h3 tt,body h3 code,body h4 tt,body h4 code,body h5 tt,body h5 code,body h6 tt,body h6 code{
+  font-size:inherit
+}
+
+body h1{
+  font-size:2.5em;
+  border-bottom:1px solid #ddd
+}
+
+body h2{
+  font-size:2em;
+  border-bottom:1px solid #eee
+}
+
+body h3{
+  font-size:1.5em
+}
+
+body h4{
+  font-size:1.2em
+}
+
+body h5{
+  font-size:1em
+}
+
+body h6{
+  color:#777;
+  font-size:1em
+}
+
+body p,body blockquote,body ul,body ol,body dl,body table,body pre{
+  margin:15px 0
+}
+
+body h1 tt,body h1 code,body h2 tt,body h2 code,body h3 tt,body h3 code,body h4 tt,body h4 code,body h5 tt,body h5 code,body h6 tt,body h6 code
+{
+  font-size:inherit;
+}
+
+
+body hr
+{
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC);
+  background-repeat: repeat-x;
+  /*background:transparent url(http://overblown.net/files/markdown/dirty-shade.png) repeat-x 0 0;*/
+  background-color: transparent;
+  background-position: 0;
+  border:0 none;
+  color:#ccc;
+  height:4px;
+  margin:15px 0;
+  padding:0;
+}
+
+body li p.first
+{
+  display:inline-block;
+}
+
+body ul,body ol
+{
+  padding-left:30px;
+}
+
+body ul.no-list,body ol.no-list
+{
+  list-style-type:none;
+  padding:0;
+}
+
+body ul ul,body ul ol,body ol ol,body ol ul
+{
+  margin-bottom:0;
+  margin-top:0;
+}
+
+body dl
+{
+  padding:0;
+}
+
+body dl dt
+{
+  font-size:14px;
+  font-style:italic;
+  font-weight:700;
+  margin-top:15px;
+  padding:0;
+}
+
+body dl dd
+{
+  margin-bottom:15px;
+  padding:0 15px;
+}
+
+body blockquote
+{
+  border-left:4px solid #DDD;
+  color:#777;
+  padding:0 15px;
+}
+
+body blockquote>:first-child
+{
+  margin-top:0;
+}
+
+body blockquote>:last-child
+{
+  margin-bottom:0;
+}
+
+body table
+{
+  display:block;
+  overflow:auto;
+  width:100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  padding: 0;
+}
+
+body table th
+{
+  font-weight:700;
+}
+
+body table th,body table td
+{
+  border:1px solid #ddd;
+  padding:6px 13px;
+}
+
+body table tr
+{
+  background-color:#fff;
+  border-top:1px solid #ccc;
+}
+
+body table tr:nth-child(2n)
+{
+  background-color:#f8f8f8;
+}
+
+body img
+{
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+  max-width:100%;
+}
+
+body span.frame
+{
+  display:block;
+  overflow:hidden;
+}
+
+body span.frame>span
+{
+  border:1px solid #ddd;
+  display:block;
+  float:left;
+  margin:13px 0 0;
+  overflow:hidden;
+  padding:7px;
+  width:auto;
+}
+
+body span.frame span img
+{
+  display:block;
+  float:left;
+}
+
+body span.frame span span
+{
+  clear:both;
+  color:#333;
+  display:block;
+  padding:5px 0 0;
+}
+
+body span.align-center
+{
+  clear:both;
+  display:block;
+  overflow:hidden;
+}
+
+body span.align-center>span
+{
+  display:block;
+  margin:13px auto 0;
+  overflow:hidden;
+  text-align:center;
+}
+
+body span.align-center span img
+{
+  margin:0 auto;
+  text-align:center;
+}
+
+body span.align-right
+{
+  clear:both;
+  display:block;
+  overflow:hidden;
+}
+
+body span.align-right>span
+{
+  display:block;
+  margin:13px 0 0;
+  overflow:hidden;
+  text-align:right;
+}
+
+body span.align-right span img
+{
+  margin:0;
+  text-align:right;
+}
+
+body span.float-left
+{
+  display:block;
+  float:left;
+  margin-right:13px;
+  overflow:hidden;
+}
+
+body span.float-left span
+{
+  margin:13px 0 0;
+}
+
+body span.float-right
+{
+  display:block;
+  float:right;
+  margin-left:13px;
+  overflow:hidden;
+}
+
+body span.float-right>span
+{
+  display:block;
+  margin:13px auto 0;
+  overflow:hidden;
+  text-align:right;
+}
+
+body code,body tt
+{
+  background-color:#f8f8f8;
+  border:1px solid #ddd;
+  border-radius:3px;
+  margin:0 2px;
+  padding:0 5px;
+}
+
+body code
+{
+  white-space:nowrap;
+}
+
+
+code,pre{
+  font-family:Consolas, "Liberation Mono", Courier, monospace;
+  font-size:12px
+}
+
+body pre>code
+{
+  background:transparent;
+  border:none;
+  margin:0;
+  padding:0;
+  white-space:pre;
+}
+
+body .highlight pre,body pre
+{
+  background-color:#f8f8f8;
+  border:1px solid #ddd;
+  font-size:13px;
+  line-height:19px;
+  overflow:auto;
+  padding:6px 10px;
+  border-radius:3px
+}
+
+body pre code,body pre tt
+{
+  background-color:transparent;
+  border:none;
+  margin:0;
+  padding:0;
+}
+
+body .task-list{
+  list-style-type:none;
+  padding-left:10px
+}
+
+.task-list-item{
+  padding-left:20px
+}
+
+.task-list-item label{
+  font-weight:normal
+}
+
+.task-list-item.enabled label{
+  cursor:pointer
+}
+
+.task-list-item+.task-list-item{
+  margin-top:5px
+}
+
+.task-list-item-checkbox{
+  float:left;
+  margin-left:-20px;
+  margin-top:7px
+}
+
+
+.highlight{
+  background:#ffffff
+}
+
+.highlight .c{
+  color:#999988;
+  font-style:italic
+}
+
+.highlight .err{
+  color:#a61717;
+  background-color:#e3d2d2
+}
+
+.highlight .k{
+  font-weight:bold
+}
+
+.highlight .o{
+  font-weight:bold
+}
+
+.highlight .cm{
+  color:#999988;
+  font-style:italic
+}
+
+.highlight .cp{
+  color:#999999;
+  font-weight:bold
+}
+
+.highlight .c1{
+  color:#999988;
+  font-style:italic
+}
+
+.highlight .cs{
+  color:#999999;
+  font-weight:bold;
+  font-style:italic
+}
+
+.highlight .gd{
+  color:#000000;
+  background-color:#ffdddd
+}
+
+.highlight .gd .x{
+  color:#000000;
+  background-color:#ffaaaa
+}
+
+.highlight .ge{
+  font-style:italic
+}
+
+.highlight .gr{
+  color:#aa0000
+}
+
+.highlight .gh{
+  color:#999999
+}
+
+.highlight .gi{
+  color:#000000;
+  background-color:#ddffdd
+}
+
+.highlight .gi .x{
+  color:#000000;
+  background-color:#aaffaa
+}
+
+.highlight .go{
+  color:#888888
+}
+
+.highlight .gp{
+  color:#555555
+}
+
+.highlight .gs{
+  font-weight:bold
+}
+
+.highlight .gu{
+  color:#800080;
+  font-weight:bold
+}
+
+.highlight .gt{
+  color:#aa0000
+}
+
+.highlight .kc{
+  font-weight:bold
+}
+
+.highlight .kd{
+  font-weight:bold
+}
+
+.highlight .kn{
+  font-weight:bold
+}
+
+.highlight .kp{
+  font-weight:bold
+}
+
+.highlight .kr{
+  font-weight:bold
+}
+
+.highlight .kt{
+  color:#445588;
+  font-weight:bold
+}
+
+.highlight .m{
+  color:#009999
+}
+
+.highlight .s{
+  color:#d14
+}
+
+.highlight .n{
+  color:#333333
+}
+
+.highlight .na{
+  color:#008080
+}
+
+.highlight .nb{
+  color:#0086B3
+}
+
+.highlight .nc{
+  color:#445588;
+  font-weight:bold
+}
+
+.highlight .no{
+  color:#008080
+}
+
+.highlight .ni{
+  color:#800080
+}
+
+.highlight .ne{
+  color:#990000;
+  font-weight:bold
+}
+
+.highlight .nf{
+  color:#990000;
+  font-weight:bold
+}
+
+.highlight .nn{
+  color:#555555
+}
+
+.highlight .nt{
+  color:#000080
+}
+
+.highlight .nv{
+  color:#008080
+}
+
+.highlight .ow{
+  font-weight:bold
+}
+
+.highlight .w{
+  color:#bbbbbb
+}
+
+.highlight .mf{
+  color:#009999
+}
+
+.highlight .mh{
+  color:#009999
+}
+
+.highlight .mi{
+  color:#009999
+}
+
+.highlight .mo{
+  color:#009999
+}
+
+.highlight .sb{
+  color:#d14
+}
+
+.highlight .sc{
+  color:#d14
+}
+
+.highlight .sd{
+  color:#d14
+}
+
+.highlight .s2{
+  color:#d14
+}
+
+.highlight .se{
+  color:#d14
+}
+
+.highlight .sh{
+  color:#d14
+}
+
+.highlight .si{
+  color:#d14
+}
+
+.highlight .sx{
+  color:#d14
+}
+
+.highlight .sr{
+  color:#009926
+}
+
+.highlight .s1{
+  color:#d14
+}
+
+.highlight .ss{
+  color:#990073
+}
+
+.highlight .bp{
+  color:#999999
+}
+
+.highlight .vc{
+  color:#008080
+}
+
+.highlight .vg{
+  color:#008080
+}
+
+.highlight .vi{
+  color:#008080
+}
+
+.highlight .il{
+  color:#009999
+}
+
+.highlight .gc{
+  color:#999;
+  background-color:#EAF2F5
+}
+
+.type-csharp .highlight .k{
+  color:#0000FF
+}
+
+.type-csharp .highlight .kt{
+  color:#0000FF
+}
+
+.type-csharp .highlight .nf{
+  color:#000000;
+  font-weight:normal
+}
+
+.type-csharp .highlight .nc{
+  color:#2B91AF
+}
+
+.type-csharp .highlight .nn{
+  color:#000000
+}
+
+.type-csharp .highlight .s{
+  color:#A31515
+}
+
+.type-csharp .highlight .sc{
+  color:#A31515
+}
+
+</style>
+<title>md_doctester</title>
+</head><body>
+<h1>
+<a name="user-content-markdown-doc-tester-readme" class="anchor" href="#markdown-doc-tester-readme"><span class="octicon octicon-link"></span></a>Markdown Doc Tester Readme</h1>
+
+<h1>
+<a name="user-content-markdown-doc-tester-usage" class="anchor" href="#markdown-doc-tester-usage"><span class="octicon octicon-link"></span></a>Markdown Doc Tester Usage</h1>
+
+<div class="highlight highlight-bash"><pre>md_doctester.py -h
+</pre></div>
+
+<pre><code>md_doctester v1.4.3 by Jim Olsen (jim@lifehack.com)
+usage: md_doctester.py [-h] -f FILE [-a GITHUB_TOKEN] [-o OUTDIR]
+                       [-l [LOGFILE]] [-s] [-c] [-t TITLE] [-v]
+
+Run tests, create markdown and HTML documentation from the test output
+
+Last validated to work with:
+- Python 2.7.5
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -f FILE, --file FILE  The doctest definition file (default: None)
+  -a GITHUB_TOKEN, --auth GITHUB_TOKEN
+                        Github oauth token (needed if you plan to use the
+                        Github API to convert Markdown to HTML more than 60
+                        times an hour). (default: )
+  -o OUTDIR, --outdir OUTDIR
+                        The output directory for the Markdown and HTML files
+                        (default: /tmp/2014_05_02-07_48_06)
+  -l [LOGFILE], --log [LOGFILE]
+                        Save the log to a file (if no file supplied, will be
+                        saved to $date.$prog.log) (default: False)
+  -s, --skipconvert     Skip Converting the Markdown to GFM (which needs
+                        access to https://api.github.com ) (default: False)
+  -c, --convertonly     Just convert a markdown file in -f to HTML using
+                        github (default: False)
+  -t TITLE, --title TITLE
+                        Title of HTML document (default: )
+  -v, --verbose         Increase console output verbosity (default: None)
+</code></pre>
+
+<ul>
+<li>Validation Test: exitcode
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: Exit Code is 0</li>
+</ul>
+</li>
+</ul><h1>
+<a name="user-content-reason-for-mdt" class="anchor" href="#reason-for-mdt"><span class="octicon octicon-link"></span></a>Reason for MDT</h1>
+
+<ul>
+<li><a href="http://tom.preston-werner.com/2010/08/23/readme-driven-development.html">Readme Driven Development</a></li>
+<li>I wanted a quick and simple way to create documentation for the myriad of scripts I write during the course of my work.</li>
+<li>I wanted documentation in both HTML and markdown format.</li>
+<li>I also wanted to be able to test my scripts in a consistent manner.</li>
+</ul><h1>
+<a name="user-content-examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h1>
+
+<ul>
+<li>This readme was generated with MDT, for one example.</li>
+</ul><h2>
+<a name="user-content-adding-notes" class="anchor" href="#adding-notes"><span class="octicon octicon-link"></span></a>Adding notes</h2>
+
+<ul>
+<li>Just include a definition that starts with 'notes'</li>
+<li>You can define multiple notes, they just need to be named differently (but all must start with 'notes')</li>
+</ul><h2>
+<a name="user-content-displaying-an-example-command-but-not-running-it" class="anchor" href="#displaying-an-example-command-but-not-running-it"><span class="octicon octicon-link"></span></a>Displaying an example command but not running it</h2>
+
+<ul>
+<li>If you include a definition that contains 'norun: true', the command will not be run, just displayed in a bash code block</li>
+</ul><div class="highlight highlight-bash"><pre>example_command -a -b -c <span class="s1">'FILENAME'</span> -u <span class="s2">"$USER"</span>
+</pre></div>
+
+<h2>
+<a name="user-content-running-a-command" class="anchor" href="#running-a-command"><span class="octicon octicon-link"></span></a>Running a command</h2>
+
+<ul>
+<li>Just include a definition 'cmd' with command you wish to run</li>
+</ul><div class="highlight highlight-bash"><pre>uname -a
+</pre></div>
+
+<pre><code>Darwin Calabacita.local 13.1.0 Darwin Kernel Version 13.1.0: Wed Apr  2 23:52:02 PDT 2014; root:xnu-2422.92.1~2/RELEASE_X86_64 x86_64
+</code></pre>
+
+<h2>
+<a name="user-content-running-a-command-and-checking-the-exit-code-is-0" class="anchor" href="#running-a-command-and-checking-the-exit-code-is-0"><span class="octicon octicon-link"></span></a>Running a command and checking the exit code is 0</h2>
+
+<ul>
+<li>If you include a definition 'validtests' and specify 'exitcode' as one of the tests, it will by default check to see if the command exits with an exitcode of 0</li>
+<li>If you include a definition 'exitcode' and specify an exitcode, it will check for that exit code instead of 0</li>
+</ul><div class="highlight highlight-bash"><pre>python -V
+</pre></div>
+
+<pre lang="STDERR"><code>Python 2.7.5
+</code></pre>
+
+<ul>
+<li>Validation Test: exitcode
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: Exit Code is 0</li>
+</ul>
+</li>
+</ul><h2>
+<a name="user-content-running-a-command-and-checking-the-exit-code-is-not-0" class="anchor" href="#running-a-command-and-checking-the-exit-code-is-not-0"><span class="octicon octicon-link"></span></a>Running a command and checking the exit code is NOT 0</h2>
+
+<ul>
+<li>If you include a definition 'validtests' and specify 'notexitcode' as one of the tests, it will by default check to see if the command exits with an exitcode that is NOT 0</li>
+<li>If you include a definition 'exitcode' and specify an exitcode, it will check for that exit code instead of 0</li>
+</ul><div class="highlight highlight-bash"><pre>python -V
+</pre></div>
+
+<pre lang="STDERR"><code>Python 2.7.5
+</code></pre>
+
+<ul>
+<li>Validation Test: notexitcode
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: Exit Code is not 5</li>
+</ul>
+</li>
+</ul><h2>
+<a name="user-content-checking-that-a-file-exists-after-running-a-command" class="anchor" href="#checking-that-a-file-exists-after-running-a-command"><span class="octicon octicon-link"></span></a>Checking that a file exists after running a command</h2>
+
+<ul>
+<li>If you include a definition 'validtests' and specify 'file_exist' as one of the tests, it will check that the file defined in 'file_exist' is found after running 'cmd'</li>
+</ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
+</pre></div>
+
+<pre><code>87164704        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 07:48 /tmp/foo
+87164781        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 07:48 /tmp/foo/test
+87164705        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 07:47 /tmp/foo/test.json
+</code></pre>
+
+<ul>
+<li>
+<p>Validation Test: file_exist</p>
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: File /tmp/foo/test exists</li>
+</ul>
+</li>
+<li>
+<p>Validation Test: exitcode</p>
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: Exit Code is 0</li>
+</ul>
+</li>
+</ul><h2>
+<a name="user-content-checking-that-a-file-match-is-found-after-running-a-command" class="anchor" href="#checking-that-a-file-match-is-found-after-running-a-command"><span class="octicon octicon-link"></span></a>Checking that a file match is found after running a command</h2>
+
+<ul>
+<li>If you include a definition 'validtests' and specify 'filematch' as one of the tests, it will check that the wildcard defined in 'filematch' is found somewhere under the directory defined in 'dirmatch'</li>
+</ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
+</pre></div>
+
+<pre><code>87164704        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 07:48 /tmp/foo
+87164781        8 -rw-r--r--    1 jolsen           wheel                  30 May  2 07:48 /tmp/foo/test
+87164705        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 07:47 /tmp/foo/test.json
+</code></pre>
+
+<ul>
+<li>
+<p>Validation Test: filematch</p>
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: File matches found for /tmp/<em>test</em>: ['/tmp/foo/test', '/tmp/foo/test.json']</li>
+</ul>
+</li>
+<li>
+<p>Validation Test: exitcode</p>
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: Exit Code is 0</li>
+</ul>
+</li>
+</ul><h2>
+<a name="user-content-checking-that-a-file-match-is-not-found-after-running-a-command" class="anchor" href="#checking-that-a-file-match-is-not-found-after-running-a-command"><span class="octicon octicon-link"></span></a>Checking that a file match is NOT found after running a command</h2>
+
+<ul>
+<li>If you include a definition 'validtests' and specify 'nofilematch' as one of the tests, it will check that the wildcard defined in 'filematch' is NOT found somewhere under the directory defined in 'dirmatch'</li>
+</ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
+</pre></div>
+
+<pre><code>87164704        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 07:48 /tmp/foo
+87164781        8 -rw-r--r--    1 jolsen           wheel                  45 May  2 07:48 /tmp/foo/test
+87164705        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 07:47 /tmp/foo/test.json
+</code></pre>
+
+<ul>
+<li>
+<p>Validation Test: nofilematch</p>
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: No file matches found for /tmp/<em>test4</em>
+</li>
+</ul>
+</li>
+<li>
+<p>Validation Test: exitcode</p>
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: Exit Code is 0</li>
+</ul>
+</li>
+</ul><h2>
+<a name="user-content-performing-cleanup-before-running-a-command" class="anchor" href="#performing-cleanup-before-running-a-command"><span class="octicon octicon-link"></span></a>Performing cleanup BEFORE running a command</h2>
+
+<ul>
+<li>If you include a definition 'precleanup', the command specified there-in will be run before 'cmd' is run</li>
+<li>This section has a precleanup with <code>rm -rf /tmp/foo</code>
+</li>
+</ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
+</pre></div>
+
+<pre><code>87164782        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 07:48 /tmp/foo
+87164783        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 07:48 /tmp/foo/test
+</code></pre>
+
+<ul>
+<li>Validation Test: exitcode
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: Exit Code is 0</li>
+</ul>
+</li>
+</ul><h2>
+<a name="user-content-creating-content-before-running-a-command" class="anchor" href="#creating-content-before-running-a-command"><span class="octicon octicon-link"></span></a>Creating Content BEFORE running a command</h2>
+
+<ul>
+<li>You can create content by defining 'contentfilenameN', 'contenttypeN', and 'contenttextN', where N is the same for each definition. For example:</li>
+<li><code>contentfilename1: /tmp/foo/test.json</code></li>
+<li><code>contenttype1: json</code></li>
+<li><code>contenttext1: { "test": "blah" }</code></li>
+<li>
+<p>this would create a file in /tmp/foo/test.json before running 'cmd'. when displaying the content block, contenttype will be added into the code fencing blocks</p>
+
+<ul>
+<li>Content File: /tmp/foo/test.json</li>
+</ul>
+</li>
+</ul><div class="highlight highlight-json"><pre><span class="p">{</span>
+    <span class="nt">"test"</span><span class="p">:</span> <span class="s2">"blah"</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="highlight highlight-bash"><pre>find /tmp/foo -ls
+</pre></div>
+
+<pre><code>87164784        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 07:48 /tmp/foo
+87164785        8 -rw-r--r--    1 jolsen           wheel                  18 May  2 07:48 /tmp/foo/test.json
+</code></pre>
+
+<ul>
+<li>
+<p>Validation Test: file_exist</p>
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: File /tmp/foo/test.json exists</li>
+</ul>
+</li>
+<li>
+<p>Validation Test: exitcode</p>
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: Exit Code is 0</li>
+</ul>
+</li>
+</ul><h2>
+<a name="user-content-showing-content-after-running-a-command" class="anchor" href="#showing-content-after-running-a-command"><span class="octicon octicon-link"></span></a>Showing Content AFTER running a command</h2>
+
+<ul>
+<li>You can show content after a command is run by defining 'afterfilenameN' and 'aftertypeN', and 'contenttextN', where N is the same for each definition. For example:</li>
+<li><code>afterfilename1: /tmp/foo/test.json</code></li>
+<li><code>aftertype1: json</code></li>
+<li>This would show the contents of the file/tmp/foo/test.json after running 'cmd'. when displaying the content block, aftertype will be added into the code fencing blocks</li>
+</ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s1">'{ "test": "blah" }'</span> &gt; /tmp/foo/test.json
+</pre></div>
+
+<ul>
+<li>
+<p>Validation Test: file_exist</p>
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: File /tmp/foo/test.json exists</li>
+</ul>
+</li>
+<li>
+<p>Validation Test: exitcode</p>
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: Exit Code is 0</li>
+</ul>
+</li>
+</ul><h2>
+<a name="user-content-invalid-test-results" class="anchor" href="#invalid-test-results"><span class="octicon octicon-link"></span></a>Invalid test results</h2>
+
+<ul>
+<li>This is just to show what an invalid test looks like</li>
+</ul><div class="highlight highlight-bash"><pre>ls -l /tmp/foo /does_not_exist
+</pre></div>
+
+<pre><code>/tmp/foo:
+total 8
+-rw-r--r--  1 jolsen  wheel  19 May  2 07:48 test.json
+</code></pre>
+
+<pre lang="STDERR"><code>ls: /does_not_exist: No such file or directory
+</code></pre>
+
+<ul>
+<li>
+<p>Validation Test: file_exist</p>
+
+<ul>
+<li>Valid: <strong>False</strong>
+</li>
+<li>Messages: File /does_not_exist does not exist</li>
+</ul>
+</li>
+<li>
+<p>Validation Test: exitcode</p>
+
+<ul>
+<li>Valid: <strong>False</strong>
+</li>
+<li>Messages: Exit Code is not 0</li>
+</ul>
+</li>
+</ul><h1>
+<a name="user-content-adding-more-validtests" class="anchor" href="#adding-more-validtests"><span class="octicon octicon-link"></span></a>Adding more validtests</h1>
+
+<ul>
+<li>The tests specified in 'validtests' are methods defined in the MDTest class</li>
+<li>Any test specified just needs to exist as a method that begins with 'val_test_'. The current section is passed into each test method, so adding new definitions that tests rely on is rather easy.</li>
+</ul><h6>
+<a name="user-content-generated-by-md_doctester-v143-date-fri-may--2-074806-2014-edt-contact-info-jim-olsen-jimlifehackcom" class="anchor" href="#generated-by-md_doctester-v143-date-fri-may--2-074806-2014-edt-contact-info-jim-olsen-jimlifehackcom"><span class="octicon octicon-link"></span></a>generated by: <code>md_doctester v1.4.3</code>, date: Fri May  2 07:48:06 2014 EDT, Contact info: <strong>Jim Olsen <a href="mailto:jim@lifehack.com">jim@lifehack.com</a></strong>
+</h6>
+</body></html>

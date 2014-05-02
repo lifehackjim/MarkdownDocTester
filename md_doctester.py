@@ -8,7 +8,7 @@ Last validated to work with:
 - Python 2.7.5
 '''
 __author__ = 'Jim Olsen (jim@lifehack.com)'
-__version__ = '1.4.3'
+__version__ = '1.4.4'
 
 '''
 N.B. I go through great lengths to keep this a single monolithic script.
@@ -208,6 +208,8 @@ class MDTest():
     CONTENTFN = 'contentfilename'
     CONTENTTYPE = 'contenttype'
     CONTENTTEXT = 'contenttext'
+    AFTERFN = 'afterfilename'
+    AFTERTYPE = 'aftertype'
 
     # default config constant
     DEFAULT_CONF = {
@@ -564,6 +566,7 @@ class MDTest():
             self.md_addcontent(sectname, sectdict)
             self.md_addsectcmd(sectname, sectdict)
             self.md_addsectout(sectname, sectdict)
+            self.md_addsectafter(sectname, sectdict)
             self.md_addvalout(sectname, sectdict)
         self.md_addgen()
         self.mdtext = '\n'.join(self.md)
@@ -648,7 +651,7 @@ class MDTest():
 
     def md_addsectout(self, sectname, sectdict):
         '''add stderr/stdout for this sections cmd return'''
-        if not self.conf.get(self.OUTBOOL, True):
+        if not self.conf.get(self.OUTBOOL, False):
             return
         sectconf = sectdict.get('SECTION', {})
         ret = sectdict.get('RETURN', {})
@@ -666,6 +669,33 @@ class MDTest():
             m = (
                 "```STDERR\n{}\n```\n"
             ).format(stderr)
+            self.md.append(m)
+
+    def md_addsectafter(self, sectname, sectdict):
+        sectconf = sectdict.get('SECTION', {})
+        for k, v in sorted(sectconf.iteritems()):
+            if not k.startswith(self.AFTERFN):
+                continue
+            contentid = k.replace(self.AFTERFN, '')
+            typekey = '{}{}'.format(self.AFTERTYPE, contentid)
+            ctype = sectdict.get(typekey, '')
+            try:
+                ctext = load_utf8(v)
+            except:
+                ctext = "Failed to load file!"
+            if ctype == 'json':
+                try:
+                    ctext = json.loads(ctext)
+                    ctext = jsonify(ctext)
+                except:
+                    pass
+            logging.debug((
+                "Found aftercontent in section {}: filename {}, type {}, "
+                "text {}"
+            ).format(sectname, v, ctype, ctext))
+            m = (
+                " * Post-command contents of: {}\n\n```{}\n{}\n```\n"
+            ).format(v, ctype, ctext)
             self.md.append(m)
 
     def md_addvalout(self, sectname, sectdict):

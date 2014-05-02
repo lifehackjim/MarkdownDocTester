@@ -16,11 +16,7 @@ cd $mydir
 
 rm -f "$logfile"
 
-for i in *.ini ; do
-    echo "Running: md_doctester.py -f \"$i\" -o \"$outdir\" -l \"$logfile\""
-    md_doctester.py -f "$i" -o "$outdir" -l "$logfile"
-done
+md_doctester.py -f "md_doctester.ini" -o "$outdir" -l "$logfile"
 
-echo "Done!"
-echo " - built docs are in $outdir"
-echo " - logfile is $logfile"
+cp $outdir/md_doctester_readme.md ../README.md
+cp $outdir/md_doctester_readme.html ../README.html

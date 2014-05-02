@@ -26,7 +26,7 @@ optional arguments:
                         times an hour). (default: )
   -o OUTDIR, --outdir OUTDIR
                         The output directory for the Markdown and HTML files
-                        (default: /tmp/2014_04_30-23_34_53)
+                        (default: /tmp/2014_05_02-07_48_06)
   -l [LOGFILE], --log [LOGFILE]
                         Save the log to a file (if no file supplied, will be
                         saved to $date.$prog.log) (default: False)
@@ -98,7 +98,7 @@ Python 2.7.5
 
 ## Running a command and checking the exit code is NOT 0
 
-  * If you include a definition 'validtests' and specify 'notexitcode' as one of the tests, it will by default check to see if the command
+  * If you include a definition 'validtests' and specify 'notexitcode' as one of the tests, it will by default check to see if the command exits with an exitcode that is NOT 0
   * If you include a definition 'exitcode' and specify an exitcode, it will check for that exit code instead of 0
 
 ```bash
@@ -122,9 +122,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87086290        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:34 /tmp/foo
-87087196        8 -rw-r--r--    1 jolsen           wheel                  15 Apr 30 23:34 /tmp/foo/test
-87086291        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:32 /tmp/foo/test.json
+87164704        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 07:48 /tmp/foo
+87164781        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 07:48 /tmp/foo/test
+87164705        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 07:47 /tmp/foo/test.json
 ```
 
   * Validation Test: file_exist
@@ -144,9 +144,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87086290        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:34 /tmp/foo
-87087196        8 -rw-r--r--    1 jolsen           wheel                  30 Apr 30 23:34 /tmp/foo/test
-87086291        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:32 /tmp/foo/test.json
+87164704        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 07:48 /tmp/foo
+87164781        8 -rw-r--r--    1 jolsen           wheel                  30 May  2 07:48 /tmp/foo/test
+87164705        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 07:47 /tmp/foo/test.json
 ```
 
   * Validation Test: filematch
@@ -166,9 +166,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87086290        0 drwxr-xr-x    4 jolsen           wheel                 136 Apr 30 23:34 /tmp/foo
-87087196        8 -rw-r--r--    1 jolsen           wheel                  45 Apr 30 23:34 /tmp/foo/test
-87086291        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:32 /tmp/foo/test.json
+87164704        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 07:48 /tmp/foo
+87164781        8 -rw-r--r--    1 jolsen           wheel                  45 May  2 07:48 /tmp/foo/test
+87164705        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 07:47 /tmp/foo/test.json
 ```
 
   * Validation Test: nofilematch
@@ -189,8 +189,8 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87087197        0 drwxr-xr-x    3 jolsen           wheel                 102 Apr 30 23:34 /tmp/foo
-87087198        8 -rw-r--r--    1 jolsen           wheel                  15 Apr 30 23:34 /tmp/foo/test
+87164782        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 07:48 /tmp/foo
+87164783        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 07:48 /tmp/foo/test
 ```
 
   * Validation Test: exitcode
@@ -218,8 +218,27 @@ find /tmp/foo -ls
 ```
 
 ```
-87087199        0 drwxr-xr-x    3 jolsen           wheel                 102 Apr 30 23:34 /tmp/foo
-87087200        8 -rw-r--r--    1 jolsen           wheel                  18 Apr 30 23:34 /tmp/foo/test.json
+87164784        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 07:48 /tmp/foo
+87164785        8 -rw-r--r--    1 jolsen           wheel                  18 May  2 07:48 /tmp/foo/test.json
+```
+
+  * Validation Test: file_exist
+    * Valid: **True**
+    * Messages: File /tmp/foo/test.json exists
+
+  * Validation Test: exitcode
+    * Valid: **True**
+    * Messages: Exit Code is 0
+
+## Showing Content AFTER running a command
+
+  * You can show content after a command is run by defining 'afterfilenameN' and 'aftertypeN', and 'contenttextN', where N is the same for each definition. For example:
+  * `afterfilename1: /tmp/foo/test.json`
+  * `aftertype1: json`
+  * This would show the contents of the file/tmp/foo/test.json after running 'cmd'. when displaying the content block, aftertype will be added into the code fencing blocks
+
+```bash
+mkdir -p /tmp/foo && echo '{ "test": "blah" }' > /tmp/foo/test.json
 ```
 
   * Validation Test: file_exist
@@ -241,7 +260,7 @@ ls -l /tmp/foo /does_not_exist
 ```
 /tmp/foo:
 total 8
--rw-r--r--  1 jolsen  wheel  18 Apr 30 23:34 test.json
+-rw-r--r--  1 jolsen  wheel  19 May  2 07:48 test.json
 ```
 
 ```STDERR
@@ -261,4 +280,4 @@ ls: /does_not_exist: No such file or directory
   * The tests specified in 'validtests' are methods defined in the MDTest class
   * Any test specified just needs to exist as a method that begins with 'val_test_'. The current section is passed into each test method, so adding new definitions that tests rely on is rather easy.
 
-###### generated by: `md_doctester v1.4.3`, date: Wed Apr 30 23:34:53 2014 EDT, Contact info: **Jim Olsen <jim@lifehack.com>**
+###### generated by: `md_doctester v1.4.3`, date: Fri May  2 07:48:06 2014 EDT, Contact info: **Jim Olsen <jim@lifehack.com>**
