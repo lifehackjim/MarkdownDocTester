@@ -6,6 +6,8 @@ Table of contents:
 
   * [Markdown Doc Tester Usage](#markdown-doc-tester-usage)
   * [Reason for MDT](#reason-for-mdt)
+  * [Config Section Definitions](#config-section-definitions)
+  * [Section Definitions](#section-definitions)
   * [Examples](#examples)
     * [Adding notes](#adding-notes)
     * [Displaying an example command but not running it](#displaying-an-example-command-but-not-running-it)
@@ -48,7 +50,7 @@ optional arguments:
                         times an hour). (default: )
   -o OUTDIR, --outdir OUTDIR
                         The output directory for the Markdown and HTML files
-                        (default: /tmp/2014_05_02-09_02_07)
+                        (default: /tmp/2014_05_02-09_35_18)
   -l [LOGFILE], --log [LOGFILE]
                         Save the log to a file (if no file supplied, will be
                         saved to $date.$prog.log) (default: False)
@@ -71,6 +73,37 @@ optional arguments:
   * I wanted a quick and simple way to create documentation for the myriad of scripts I write during the course of my work.
   * I wanted documentation in both HTML and markdown format.
   * I also wanted to be able to test my scripts in a consistent manner.
+
+# Config Section Definitions
+
+  * output_blocks: true/false, yes/no - whether to include the output of all 'cmd' definitions in each section, defaults to true
+  * valid_blocks: true/false, yes/no - whether to include the output of all 'validtests' definitions in each section, defaults to true
+  * TOC: true/false, yes/no - whether to include the a table of contents or not, defaults to true
+  * mainheader: string - This is used for the main header of the document - if none supplied there will be no main header
+  * basename: string - the basename of the file to generate. if not supplied, will be generated from the basename of the ini file (minus extension)
+  * contact: string - contact info to include in generation string at bottom of doc. if not supplied, local unix username will be inserted instead
+  * title: string - Title to use for HTML document. if not supplied, will be generated from the basename of the ini file (minus extension)
+  * outdir: string - The directory to save this files generated docs. If not supplied, defaults to /tmp/$date (or whatever was supplied on command line)
+
+# Section Definitions
+
+  * notesN - string - a note to include for this section. Multiple notes can be defined, just need to be named differently. Deeper notes can be defined by using notesNN / notesNNN
+  * norun - true/false, yes/no - whether to run 'cmd' or not, defaults to true
+  * headerdepth - int - the number of #s to put in front of the section header
+  * cmd - string - the command to run
+  * validtests - string - a comma seperated string of validation tests to run
+  * exitcode - int - the exit code to use when running the validation tests 'exitcode' and 'notexitcode'. defaults to 0
+  * file_exist - str - the file to check for when running the validation test 'file_exist'
+  * filematch - str - the wildcard to check for when running the validation test 'filematch'
+  * dirmatch - str - the directory to search for 'filematch' wildcard under when running the validation test 'filematch'
+  * precleanup - str - the command to run before running 'cmd'
+  * content generation before running 'cmd' definitions:
+    * contentfilenameN: string - the filename to generate, where N is a contentid
+    * contenttypeN: string - the type of content for filename for contentid N
+    * contenttextN: string - the text to put into the filename for contentid N
+  * content output after running 'cmd' definitions:
+    * afterfilenameN: string - the filename to output, where N is a contentid
+    * aftertypeN: string - the type of content for filename for contentid N
 
 # Examples
 
@@ -146,18 +179,18 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87169621        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:02 /tmp/foo
-87169703        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 09:02 /tmp/foo/test
-87169622        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:01 /tmp/foo/test.json
+87170915        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:35 /tmp/foo
+87170947        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 09:35 /tmp/foo/test
+87170916        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:34 /tmp/foo/test.json
 ```
-
-  * Validation Test: file_exist
-    * Valid: **True**
-    * Messages: File /tmp/foo/test exists
 
   * Validation Test: exitcode
     * Valid: **True**
     * Messages: Exit Code is 0
+
+  * Validation Test: file_exist
+    * Valid: **True**
+    * Messages: File /tmp/foo/test exists
 
 ## Checking that a file match is found after running a command
 
@@ -168,18 +201,18 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87169621        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:02 /tmp/foo
-87169703        8 -rw-r--r--    1 jolsen           wheel                  30 May  2 09:02 /tmp/foo/test
-87169622        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:01 /tmp/foo/test.json
+87170915        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:35 /tmp/foo
+87170947        8 -rw-r--r--    1 jolsen           wheel                  30 May  2 09:35 /tmp/foo/test
+87170916        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:34 /tmp/foo/test.json
 ```
-
-  * Validation Test: filematch
-    * Valid: **True**
-    * Messages: File matches found for /tmp/*test*: ['/tmp/foo/test', '/tmp/foo/test.json']
 
   * Validation Test: exitcode
     * Valid: **True**
     * Messages: Exit Code is 0
+
+  * Validation Test: filematch
+    * Valid: **True**
+    * Messages: File matches found for /tmp/*test*: ['/tmp/foo/test', '/tmp/foo/test.json']
 
 ## Checking that a file match is NOT found after running a command
 
@@ -190,18 +223,18 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87169621        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:02 /tmp/foo
-87169703        8 -rw-r--r--    1 jolsen           wheel                  45 May  2 09:02 /tmp/foo/test
-87169622        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:01 /tmp/foo/test.json
+87170915        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:35 /tmp/foo
+87170947        8 -rw-r--r--    1 jolsen           wheel                  45 May  2 09:35 /tmp/foo/test
+87170916        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:34 /tmp/foo/test.json
 ```
-
-  * Validation Test: nofilematch
-    * Valid: **True**
-    * Messages: No file matches found for /tmp/*test4*
 
   * Validation Test: exitcode
     * Valid: **True**
     * Messages: Exit Code is 0
+
+  * Validation Test: nofilematch
+    * Valid: **True**
+    * Messages: No file matches found for /tmp/*test4*
 
 ## Performing cleanup BEFORE running a command
 
@@ -213,8 +246,8 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87169704        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 09:02 /tmp/foo
-87169705        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 09:02 /tmp/foo/test
+87170948        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 09:35 /tmp/foo
+87170949        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 09:35 /tmp/foo/test
 ```
 
   * Validation Test: exitcode
@@ -242,17 +275,17 @@ find /tmp/foo -ls
 ```
 
 ```
-87169706        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 09:02 /tmp/foo
-87169707        8 -rw-r--r--    1 jolsen           wheel                  18 May  2 09:02 /tmp/foo/test.json
+87170950        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 09:35 /tmp/foo
+87170951        8 -rw-r--r--    1 jolsen           wheel                  18 May  2 09:35 /tmp/foo/test.json
 ```
-
-  * Validation Test: file_exist
-    * Valid: **True**
-    * Messages: File /tmp/foo/test.json exists
 
   * Validation Test: exitcode
     * Valid: **True**
     * Messages: Exit Code is 0
+
+  * Validation Test: file_exist
+    * Valid: **True**
+    * Messages: File /tmp/foo/test.json exists
 
 ## Showing Content AFTER running a command
 
@@ -273,13 +306,13 @@ mkdir -p /tmp/foo && echo '{ "test": "blah" }' > /tmp/foo/test.json
 }
 ```
 
-  * Validation Test: file_exist
-    * Valid: **True**
-    * Messages: File /tmp/foo/test.json exists
-
   * Validation Test: exitcode
     * Valid: **True**
     * Messages: Exit Code is 0
+
+  * Validation Test: file_exist
+    * Valid: **True**
+    * Messages: File /tmp/foo/test.json exists
 
 ## Invalid test results
 
@@ -292,24 +325,24 @@ ls -l /tmp/foo /does_not_exist
 ```
 /tmp/foo:
 total 8
--rw-r--r--  1 jolsen  wheel  19 May  2 09:02 test.json
+-rw-r--r--  1 jolsen  wheel  19 May  2 09:35 test.json
 ```
 
 ```STDERR
 ls: /does_not_exist: No such file or directory
 ```
 
-  * Validation Test: file_exist
-    * Valid: **False**
-    * Messages: File /does_not_exist does not exist
-
   * Validation Test: exitcode
     * Valid: **False**
     * Messages: Exit Code is not 0
+
+  * Validation Test: file_exist
+    * Valid: **False**
+    * Messages: File /does_not_exist does not exist
 
 # Adding more validtests
 
   * The tests specified in 'validtests' are methods defined in the MDTest class
   * Any test specified just needs to exist as a method that begins with 'val_test_'. The current section is passed into each test method, so adding new definitions that tests rely on is rather easy.
 
-###### generated by: `md_doctester v1.4.4`, date: Fri May  2 09:02:07 2014 EDT, Contact info: **Jim Olsen <jim@lifehack.com>**
+###### generated by: `md_doctester v1.4.4`, date: Fri May  2 09:35:18 2014 EDT, Contact info: **Jim Olsen <jim@lifehack.com>**

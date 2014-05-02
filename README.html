@@ -762,6 +762,8 @@ body .task-list{
 <ul>
 <li><a href="#markdown-doc-tester-usage">Markdown Doc Tester Usage</a></li>
 <li><a href="#reason-for-mdt">Reason for MDT</a></li>
+<li><a href="#config-section-definitions">Config Section Definitions</a></li>
+<li><a href="#section-definitions">Section Definitions</a></li>
 <li>
 <a href="#examples">Examples</a>
 
@@ -805,7 +807,7 @@ optional arguments:
                         times an hour). (default: )
   -o OUTDIR, --outdir OUTDIR
                         The output directory for the Markdown and HTML files
-                        (default: /tmp/2014_05_02-09_02_07)
+                        (default: /tmp/2014_05_02-09_35_18)
   -l [LOGFILE], --log [LOGFILE]
                         Save the log to a file (if no file supplied, will be
                         saved to $date.$prog.log) (default: False)
@@ -835,6 +837,47 @@ optional arguments:
 <li>I wanted a quick and simple way to create documentation for the myriad of scripts I write during the course of my work.</li>
 <li>I wanted documentation in both HTML and markdown format.</li>
 <li>I also wanted to be able to test my scripts in a consistent manner.</li>
+</ul><h1>
+<a name="user-content-config-section-definitions" class="anchor" href="#config-section-definitions"><span class="octicon octicon-link"></span></a>Config Section Definitions</h1>
+
+<ul>
+<li>output_blocks: true/false, yes/no - whether to include the output of all 'cmd' definitions in each section, defaults to true</li>
+<li>valid_blocks: true/false, yes/no - whether to include the output of all 'validtests' definitions in each section, defaults to true</li>
+<li>TOC: true/false, yes/no - whether to include the a table of contents or not, defaults to true</li>
+<li>mainheader: string - This is used for the main header of the document - if none supplied there will be no main header</li>
+<li>basename: string - the basename of the file to generate. if not supplied, will be generated from the basename of the ini file (minus extension)</li>
+<li>contact: string - contact info to include in generation string at bottom of doc. if not supplied, local unix username will be inserted instead</li>
+<li>title: string - Title to use for HTML document. if not supplied, will be generated from the basename of the ini file (minus extension)</li>
+<li>outdir: string - The directory to save this files generated docs. If not supplied, defaults to /tmp/$date (or whatever was supplied on command line)</li>
+</ul><h1>
+<a name="user-content-section-definitions" class="anchor" href="#section-definitions"><span class="octicon octicon-link"></span></a>Section Definitions</h1>
+
+<ul>
+<li>notesN - string - a note to include for this section. Multiple notes can be defined, just need to be named differently. Deeper notes can be defined by using notesNN / notesNNN</li>
+<li>norun - true/false, yes/no - whether to run 'cmd' or not, defaults to true</li>
+<li>headerdepth - int - the number of #s to put in front of the section header</li>
+<li>cmd - string - the command to run</li>
+<li>validtests - string - a comma seperated string of validation tests to run</li>
+<li>exitcode - int - the exit code to use when running the validation tests 'exitcode' and 'notexitcode'. defaults to 0</li>
+<li>file_exist - str - the file to check for when running the validation test 'file_exist'</li>
+<li>filematch - str - the wildcard to check for when running the validation test 'filematch'</li>
+<li>dirmatch - str - the directory to search for 'filematch' wildcard under when running the validation test 'filematch'</li>
+<li>precleanup - str - the command to run before running 'cmd'</li>
+<li>content generation before running 'cmd' definitions:
+
+<ul>
+<li>contentfilenameN: string - the filename to generate, where N is a contentid</li>
+<li>contenttypeN: string - the type of content for filename for contentid N</li>
+<li>contenttextN: string - the text to put into the filename for contentid N</li>
+</ul>
+</li>
+<li>content output after running 'cmd' definitions:
+
+<ul>
+<li>afterfilenameN: string - the filename to output, where N is a contentid</li>
+<li>aftertypeN: string - the type of content for filename for contentid N</li>
+</ul>
+</li>
 </ul><h1>
 <a name="user-content-examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h1>
 
@@ -917,21 +960,12 @@ optional arguments:
 </ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87169621        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:02 /tmp/foo
-87169703        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 09:02 /tmp/foo/test
-87169622        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:01 /tmp/foo/test.json
+<pre><code>87170915        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:35 /tmp/foo
+87170947        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 09:35 /tmp/foo/test
+87170916        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:34 /tmp/foo/test.json
 </code></pre>
 
 <ul>
-<li>
-<p>Validation Test: file_exist</p>
-
-<ul>
-<li>Valid: <strong>True</strong>
-</li>
-<li>Messages: File /tmp/foo/test exists</li>
-</ul>
-</li>
 <li>
 <p>Validation Test: exitcode</p>
 
@@ -939,6 +973,15 @@ optional arguments:
 <li>Valid: <strong>True</strong>
 </li>
 <li>Messages: Exit Code is 0</li>
+</ul>
+</li>
+<li>
+<p>Validation Test: file_exist</p>
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: File /tmp/foo/test exists</li>
 </ul>
 </li>
 </ul><h2>
@@ -949,21 +992,12 @@ optional arguments:
 </ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87169621        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:02 /tmp/foo
-87169703        8 -rw-r--r--    1 jolsen           wheel                  30 May  2 09:02 /tmp/foo/test
-87169622        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:01 /tmp/foo/test.json
+<pre><code>87170915        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:35 /tmp/foo
+87170947        8 -rw-r--r--    1 jolsen           wheel                  30 May  2 09:35 /tmp/foo/test
+87170916        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:34 /tmp/foo/test.json
 </code></pre>
 
 <ul>
-<li>
-<p>Validation Test: filematch</p>
-
-<ul>
-<li>Valid: <strong>True</strong>
-</li>
-<li>Messages: File matches found for /tmp/<em>test</em>: ['/tmp/foo/test', '/tmp/foo/test.json']</li>
-</ul>
-</li>
 <li>
 <p>Validation Test: exitcode</p>
 
@@ -971,6 +1005,15 @@ optional arguments:
 <li>Valid: <strong>True</strong>
 </li>
 <li>Messages: Exit Code is 0</li>
+</ul>
+</li>
+<li>
+<p>Validation Test: filematch</p>
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: File matches found for /tmp/<em>test</em>: ['/tmp/foo/test', '/tmp/foo/test.json']</li>
 </ul>
 </li>
 </ul><h2>
@@ -981,12 +1024,21 @@ optional arguments:
 </ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87169621        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:02 /tmp/foo
-87169703        8 -rw-r--r--    1 jolsen           wheel                  45 May  2 09:02 /tmp/foo/test
-87169622        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:01 /tmp/foo/test.json
+<pre><code>87170915        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:35 /tmp/foo
+87170947        8 -rw-r--r--    1 jolsen           wheel                  45 May  2 09:35 /tmp/foo/test
+87170916        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:34 /tmp/foo/test.json
 </code></pre>
 
 <ul>
+<li>
+<p>Validation Test: exitcode</p>
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: Exit Code is 0</li>
+</ul>
+</li>
 <li>
 <p>Validation Test: nofilematch</p>
 
@@ -995,15 +1047,6 @@ optional arguments:
 </li>
 <li>Messages: No file matches found for /tmp/<em>test4</em>
 </li>
-</ul>
-</li>
-<li>
-<p>Validation Test: exitcode</p>
-
-<ul>
-<li>Valid: <strong>True</strong>
-</li>
-<li>Messages: Exit Code is 0</li>
 </ul>
 </li>
 </ul><h2>
@@ -1016,8 +1059,8 @@ optional arguments:
 </ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87169704        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 09:02 /tmp/foo
-87169705        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 09:02 /tmp/foo/test
+<pre><code>87170948        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 09:35 /tmp/foo
+87170949        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 09:35 /tmp/foo/test
 </code></pre>
 
 <ul>
@@ -1052,20 +1095,11 @@ optional arguments:
 <div class="highlight highlight-bash"><pre>find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87169706        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 09:02 /tmp/foo
-87169707        8 -rw-r--r--    1 jolsen           wheel                  18 May  2 09:02 /tmp/foo/test.json
+<pre><code>87170950        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 09:35 /tmp/foo
+87170951        8 -rw-r--r--    1 jolsen           wheel                  18 May  2 09:35 /tmp/foo/test.json
 </code></pre>
 
 <ul>
-<li>
-<p>Validation Test: file_exist</p>
-
-<ul>
-<li>Valid: <strong>True</strong>
-</li>
-<li>Messages: File /tmp/foo/test.json exists</li>
-</ul>
-</li>
 <li>
 <p>Validation Test: exitcode</p>
 
@@ -1073,6 +1107,15 @@ optional arguments:
 <li>Valid: <strong>True</strong>
 </li>
 <li>Messages: Exit Code is 0</li>
+</ul>
+</li>
+<li>
+<p>Validation Test: file_exist</p>
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: File /tmp/foo/test.json exists</li>
 </ul>
 </li>
 </ul><h2>
@@ -1095,21 +1138,21 @@ optional arguments:
 
 <ul>
 <li>
-<p>Validation Test: file_exist</p>
-
-<ul>
-<li>Valid: <strong>True</strong>
-</li>
-<li>Messages: File /tmp/foo/test.json exists</li>
-</ul>
-</li>
-<li>
 <p>Validation Test: exitcode</p>
 
 <ul>
 <li>Valid: <strong>True</strong>
 </li>
 <li>Messages: Exit Code is 0</li>
+</ul>
+</li>
+<li>
+<p>Validation Test: file_exist</p>
+
+<ul>
+<li>Valid: <strong>True</strong>
+</li>
+<li>Messages: File /tmp/foo/test.json exists</li>
 </ul>
 </li>
 </ul><h2>
@@ -1122,22 +1165,13 @@ optional arguments:
 
 <pre><code>/tmp/foo:
 total 8
--rw-r--r--  1 jolsen  wheel  19 May  2 09:02 test.json
+-rw-r--r--  1 jolsen  wheel  19 May  2 09:35 test.json
 </code></pre>
 
 <pre lang="STDERR"><code>ls: /does_not_exist: No such file or directory
 </code></pre>
 
 <ul>
-<li>
-<p>Validation Test: file_exist</p>
-
-<ul>
-<li>Valid: <strong>False</strong>
-</li>
-<li>Messages: File /does_not_exist does not exist</li>
-</ul>
-</li>
 <li>
 <p>Validation Test: exitcode</p>
 
@@ -1147,6 +1181,15 @@ total 8
 <li>Messages: Exit Code is not 0</li>
 </ul>
 </li>
+<li>
+<p>Validation Test: file_exist</p>
+
+<ul>
+<li>Valid: <strong>False</strong>
+</li>
+<li>Messages: File /does_not_exist does not exist</li>
+</ul>
+</li>
 </ul><h1>
 <a name="user-content-adding-more-validtests" class="anchor" href="#adding-more-validtests"><span class="octicon octicon-link"></span></a>Adding more validtests</h1>
 
@@ -1154,6 +1197,6 @@ total 8
 <li>The tests specified in 'validtests' are methods defined in the MDTest class</li>
 <li>Any test specified just needs to exist as a method that begins with 'val_test_'. The current section is passed into each test method, so adding new definitions that tests rely on is rather easy.</li>
 </ul><h6>
-<a name="user-content-generated-by-md_doctester-v144-date-fri-may--2-090207-2014-edt-contact-info-jim-olsen-jimlifehackcom" class="anchor" href="#generated-by-md_doctester-v144-date-fri-may--2-090207-2014-edt-contact-info-jim-olsen-jimlifehackcom"><span class="octicon octicon-link"></span></a>generated by: <code>md_doctester v1.4.4</code>, date: Fri May  2 09:02:07 2014 EDT, Contact info: <strong>Jim Olsen <a href="mailto:jim@lifehack.com">jim@lifehack.com</a></strong>
+<a name="user-content-generated-by-md_doctester-v144-date-fri-may--2-093518-2014-edt-contact-info-jim-olsen-jimlifehackcom" class="anchor" href="#generated-by-md_doctester-v144-date-fri-may--2-093518-2014-edt-contact-info-jim-olsen-jimlifehackcom"><span class="octicon octicon-link"></span></a>generated by: <code>md_doctester v1.4.4</code>, date: Fri May  2 09:35:18 2014 EDT, Contact info: <strong>Jim Olsen <a href="mailto:jim@lifehack.com">jim@lifehack.com</a></strong>
 </h6>
 </body></html>
