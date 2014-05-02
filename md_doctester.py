@@ -377,9 +377,10 @@ class MDTest():
     def gather_content(self, sectname):
         s = self.t[sectname]
         content = {}
-        for k, v in sorted(s['SECTION'].iteritems()):
+        for k in sorted(s['SECTION']):
             if not k.startswith(self.CONTENTFN):
                 continue
+            fn = s['SECTION'][k]
             contentid = k.replace(self.CONTENTFN, '')
             typekey = '{}{}'.format(self.CONTENTTYPE, contentid)
             textkey = '{}{}'.format(self.CONTENTTEXT, contentid)
@@ -388,9 +389,9 @@ class MDTest():
             ctext = ctext.decode('string_escape')
             logging.debug((
                 "Found content in section {}: filename {}, type {}, text {}"
-            ).format(sectname, v, ctype, ctext))
+            ).format(sectname, fn, ctype, ctext))
             content[contentid] = {
-                'cname': v,
+                'cname': fn,
                 'ctype': ctype,
                 'ctext': ctext,
             }
@@ -637,12 +638,16 @@ class MDTest():
     def md_addnotes(self, sectname, sectdict):
         sectconf = sectdict.get('SECTION', {})
         added = False
-        for k, v in sorted(sectconf.iteritems()):
+        for k in sorted(sectconf):
             if not k.startswith(self.NOTES):
                 continue
+            depth = k.replace(self.NOTES, '')
+            depth = len(depth)
+            depth = "  " * depth
+            v = sectconf[k]
             m = (
-                "  * {}"
-            ).format(v)
+                "{}* {}"
+            ).format(depth, v)
             self.md.append(m)
             added = True
         if added:
@@ -705,14 +710,15 @@ class MDTest():
 
     def md_addsectafter(self, sectname, sectdict):
         sectconf = sectdict.get('SECTION', {})
-        for k, v in sorted(sectconf.iteritems()):
+        for k in sorted(sectconf):
             if not k.startswith(self.AFTERFN):
                 continue
+            fn = sectconf[k]
             contentid = k.replace(self.AFTERFN, '')
             typekey = '{}{}'.format(self.AFTERTYPE, contentid)
             ctype = sectconf.get(typekey, '')
             try:
-                ctext = load_utf8(v)
+                ctext = load_utf8(fn)
             except:
                 ctext = "Failed to load file!"
             if ctype == 'json':
@@ -729,10 +735,10 @@ class MDTest():
             logging.debug((
                 "Found aftercontent in section {}: filename {}, type {}, "
                 "text {}"
-            ).format(sectname, v, ctype, ctext))
+            ).format(sectname, fn, ctype, ctext))
             m = (
                 " * Post-command contents of: {}\n\n```{}\n{}\n```\n"
-            ).format(v, ctype, ctext)
+            ).format(fn, ctype, ctext)
             self.md.append(m)
 
     def md_addvalout(self, sectname, sectdict):
@@ -741,7 +747,8 @@ class MDTest():
 
         vts = sectdict.get('VALRESULTS', {})
 
-        for vt, vtdict in vts.iteritems():
+        for vt in sorted(vts):
+            vtdict = vts[vt]
             valid = vtdict.get('valid', 'UNKNOWN!?')
             msgs = vtdict.get('msgs', [])
             msgs = '\n'.join(msgs)
