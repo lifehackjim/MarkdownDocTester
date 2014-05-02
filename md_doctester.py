@@ -297,6 +297,7 @@ class MDTest():
             self.setoptbool(self.C_SECT, self.VALBOOL, self.conf)
             self.setoptbool(self.C_SECT, self.TOCBOOL, self.conf)
             self.setoptstr(self.C_SECT, self.MH, self.conf)
+            self.setoptstr(self.C_SECT, self.TITLE, self.conf)
             self.setoptstr(self.C_SECT, self.BASENAME, self.conf)
             self.setoptstr(self.C_SECT, self.OUTDIR, self.conf)
             self.setoptstr(self.C_SECT, self.CI, self.conf)
