@@ -760,27 +760,27 @@ body .task-list{
 <hr><p>Table of contents:</p>
 
 <ul>
-<li><a href="#markdown_doc_tester_usage">Markdown Doc Tester Usage</a></li>
-<li><a href="#reason_for_mdt">Reason for MDT</a></li>
+<li><a href="#markdown-doc-tester-usage">Markdown Doc Tester Usage</a></li>
+<li><a href="#reason-for-mdt">Reason for MDT</a></li>
 <li>
 <a href="#examples">Examples</a>
 
 <ul>
-<li><a href="#adding_notes">Adding notes</a></li>
-<li><a href="#displaying_an_example_command_but_not_running_it">Displaying an example command but not running it</a></li>
-<li><a href="#running_a_command">Running a command</a></li>
-<li><a href="#running_a_command_and_checking_the_exit_code_is_0">Running a command and checking the exit code is 0</a></li>
-<li><a href="#running_a_command_and_checking_the_exit_code_is_not_0">Running a command and checking the exit code is NOT 0</a></li>
-<li><a href="#checking_that_a_file_exists_after_running_a_command">Checking that a file exists after running a command</a></li>
-<li><a href="#checking_that_a_file_match_is_found_after_running_a_command">Checking that a file match is found after running a command</a></li>
-<li><a href="#checking_that_a_file_match_is_not_found_after_running_a_command">Checking that a file match is NOT found after running a command</a></li>
-<li><a href="#performing_cleanup_before_running_a_command">Performing cleanup BEFORE running a command</a></li>
-<li><a href="#creating_content_before_running_a_command">Creating Content BEFORE running a command</a></li>
-<li><a href="#showing_content_after_running_a_command">Showing Content AFTER running a command</a></li>
-<li><a href="#invalid_test_results">Invalid test results</a></li>
+<li><a href="#adding-notes">Adding notes</a></li>
+<li><a href="#displaying-an-example-command-but-not-running-it">Displaying an example command but not running it</a></li>
+<li><a href="#running-a-command">Running a command</a></li>
+<li><a href="#running-a-command-and-checking-the-exit-code-is-0">Running a command and checking the exit code is 0</a></li>
+<li><a href="#running-a-command-and-checking-the-exit-code-is-not-0">Running a command and checking the exit code is NOT 0</a></li>
+<li><a href="#checking-that-a-file-exists-after-running-a-command">Checking that a file exists after running a command</a></li>
+<li><a href="#checking-that-a-file-match-is-found-after-running-a-command">Checking that a file match is found after running a command</a></li>
+<li><a href="#checking-that-a-file-match-is-not-found-after-running-a-command">Checking that a file match is NOT found after running a command</a></li>
+<li><a href="#performing-cleanup-before-running-a-command">Performing cleanup BEFORE running a command</a></li>
+<li><a href="#creating-content-before-running-a-command">Creating Content BEFORE running a command</a></li>
+<li><a href="#showing-content-after-running-a-command">Showing Content AFTER running a command</a></li>
+<li><a href="#invalid-test-results">Invalid test results</a></li>
 </ul>
 </li>
-<li><a href="#adding_more_validtests">Adding more validtests</a></li>
+<li><a href="#adding-more-validtests">Adding more validtests</a></li>
 </ul><hr><h1>
 <a name="user-content-markdown-doc-tester-usage" class="anchor" href="#markdown-doc-tester-usage"><span class="octicon octicon-link"></span></a>Markdown Doc Tester Usage</h1>
 
@@ -805,7 +805,7 @@ optional arguments:
                         times an hour). (default: )
   -o OUTDIR, --outdir OUTDIR
                         The output directory for the Markdown and HTML files
-                        (default: /tmp/2014_05_02-09_01_19)
+                        (default: /tmp/2014_05_02-09_02_07)
   -l [LOGFILE], --log [LOGFILE]
                         Save the log to a file (if no file supplied, will be
                         saved to $date.$prog.log) (default: False)
@@ -917,9 +917,9 @@ optional arguments:
 </ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87169601        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:01 /tmp/foo
-87169616        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 09:01 /tmp/foo/test
-87169602        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:00 /tmp/foo/test.json
+<pre><code>87169621        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:02 /tmp/foo
+87169703        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 09:02 /tmp/foo/test
+87169622        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:01 /tmp/foo/test.json
 </code></pre>
 
 <ul>
@@ -949,9 +949,9 @@ optional arguments:
 </ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87169601        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:01 /tmp/foo
-87169616        8 -rw-r--r--    1 jolsen           wheel                  30 May  2 09:01 /tmp/foo/test
-87169602        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:00 /tmp/foo/test.json
+<pre><code>87169621        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:02 /tmp/foo
+87169703        8 -rw-r--r--    1 jolsen           wheel                  30 May  2 09:02 /tmp/foo/test
+87169622        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:01 /tmp/foo/test.json
 </code></pre>
 
 <ul>
@@ -981,9 +981,9 @@ optional arguments:
 </ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87169601        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:01 /tmp/foo
-87169616        8 -rw-r--r--    1 jolsen           wheel                  45 May  2 09:01 /tmp/foo/test
-87169602        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:00 /tmp/foo/test.json
+<pre><code>87169621        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:02 /tmp/foo
+87169703        8 -rw-r--r--    1 jolsen           wheel                  45 May  2 09:02 /tmp/foo/test
+87169622        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:01 /tmp/foo/test.json
 </code></pre>
 
 <ul>
@@ -1016,8 +1016,8 @@ optional arguments:
 </ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87169617        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 09:01 /tmp/foo
-87169618        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 09:01 /tmp/foo/test
+<pre><code>87169704        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 09:02 /tmp/foo
+87169705        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 09:02 /tmp/foo/test
 </code></pre>
 
 <ul>
@@ -1052,8 +1052,8 @@ optional arguments:
 <div class="highlight highlight-bash"><pre>find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87169619        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 09:01 /tmp/foo
-87169620        8 -rw-r--r--    1 jolsen           wheel                  18 May  2 09:01 /tmp/foo/test.json
+<pre><code>87169706        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 09:02 /tmp/foo
+87169707        8 -rw-r--r--    1 jolsen           wheel                  18 May  2 09:02 /tmp/foo/test.json
 </code></pre>
 
 <ul>
@@ -1122,7 +1122,7 @@ optional arguments:
 
 <pre><code>/tmp/foo:
 total 8
--rw-r--r--  1 jolsen  wheel  19 May  2 09:01 test.json
+-rw-r--r--  1 jolsen  wheel  19 May  2 09:02 test.json
 </code></pre>
 
 <pre lang="STDERR"><code>ls: /does_not_exist: No such file or directory
@@ -1154,6 +1154,6 @@ total 8
 <li>The tests specified in 'validtests' are methods defined in the MDTest class</li>
 <li>Any test specified just needs to exist as a method that begins with 'val_test_'. The current section is passed into each test method, so adding new definitions that tests rely on is rather easy.</li>
 </ul><h6>
-<a name="user-content-generated-by-md_doctester-v144-date-fri-may--2-090119-2014-edt-contact-info-jim-olsen-jimlifehackcom" class="anchor" href="#generated-by-md_doctester-v144-date-fri-may--2-090119-2014-edt-contact-info-jim-olsen-jimlifehackcom"><span class="octicon octicon-link"></span></a>generated by: <code>md_doctester v1.4.4</code>, date: Fri May  2 09:01:19 2014 EDT, Contact info: <strong>Jim Olsen <a href="mailto:jim@lifehack.com">jim@lifehack.com</a></strong>
+<a name="user-content-generated-by-md_doctester-v144-date-fri-may--2-090207-2014-edt-contact-info-jim-olsen-jimlifehackcom" class="anchor" href="#generated-by-md_doctester-v144-date-fri-may--2-090207-2014-edt-contact-info-jim-olsen-jimlifehackcom"><span class="octicon octicon-link"></span></a>generated by: <code>md_doctester v1.4.4</code>, date: Fri May  2 09:02:07 2014 EDT, Contact info: <strong>Jim Olsen <a href="mailto:jim@lifehack.com">jim@lifehack.com</a></strong>
 </h6>
 </body></html>

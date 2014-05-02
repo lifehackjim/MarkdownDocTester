@@ -603,7 +603,7 @@ class MDTest():
             if sectname == self.C_SECT:
                 continue
             s = self.t[sectname]
-            aref = sectname.lower().replace(' ', '_')
+            aref = sectname.lower().replace(' ', '-')
             depth = s['SECTION'].get(self.DEPTH, self.DEPTHDEF)
             depth = "  " * int(depth)
             m = (
