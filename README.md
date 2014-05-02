@@ -8,7 +8,7 @@ md_doctester.py -h
 ```
 
 ```
-md_doctester v1.4.3 by Jim Olsen (jim@lifehack.com)
+md_doctester v1.4.4 by Jim Olsen (jim@lifehack.com)
 usage: md_doctester.py [-h] -f FILE [-a GITHUB_TOKEN] [-o OUTDIR]
                        [-l [LOGFILE]] [-s] [-c] [-t TITLE] [-v]
 
@@ -26,7 +26,7 @@ optional arguments:
                         times an hour). (default: )
   -o OUTDIR, --outdir OUTDIR
                         The output directory for the Markdown and HTML files
-                        (default: /tmp/2014_05_02-07_48_06)
+                        (default: /tmp/2014_05_02-07_52_00)
   -l [LOGFILE], --log [LOGFILE]
                         Save the log to a file (if no file supplied, will be
                         saved to $date.$prog.log) (default: False)
@@ -122,9 +122,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87164704        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 07:48 /tmp/foo
-87164781        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 07:48 /tmp/foo/test
-87164705        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 07:47 /tmp/foo/test.json
+87164786        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 07:52 /tmp/foo
+87166496        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 07:52 /tmp/foo/test
+87164787        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 07:48 /tmp/foo/test.json
 ```
 
   * Validation Test: file_exist
@@ -144,9 +144,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87164704        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 07:48 /tmp/foo
-87164781        8 -rw-r--r--    1 jolsen           wheel                  30 May  2 07:48 /tmp/foo/test
-87164705        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 07:47 /tmp/foo/test.json
+87164786        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 07:52 /tmp/foo
+87166496        8 -rw-r--r--    1 jolsen           wheel                  30 May  2 07:52 /tmp/foo/test
+87164787        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 07:48 /tmp/foo/test.json
 ```
 
   * Validation Test: filematch
@@ -166,9 +166,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87164704        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 07:48 /tmp/foo
-87164781        8 -rw-r--r--    1 jolsen           wheel                  45 May  2 07:48 /tmp/foo/test
-87164705        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 07:47 /tmp/foo/test.json
+87164786        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 07:52 /tmp/foo
+87166496        8 -rw-r--r--    1 jolsen           wheel                  45 May  2 07:52 /tmp/foo/test
+87164787        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 07:48 /tmp/foo/test.json
 ```
 
   * Validation Test: nofilematch
@@ -189,8 +189,8 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87164782        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 07:48 /tmp/foo
-87164783        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 07:48 /tmp/foo/test
+87166497        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 07:52 /tmp/foo
+87166498        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 07:52 /tmp/foo/test
 ```
 
   * Validation Test: exitcode
@@ -218,8 +218,8 @@ find /tmp/foo -ls
 ```
 
 ```
-87164784        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 07:48 /tmp/foo
-87164785        8 -rw-r--r--    1 jolsen           wheel                  18 May  2 07:48 /tmp/foo/test.json
+87166499        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 07:52 /tmp/foo
+87166500        8 -rw-r--r--    1 jolsen           wheel                  18 May  2 07:52 /tmp/foo/test.json
 ```
 
   * Validation Test: file_exist
@@ -241,6 +241,13 @@ find /tmp/foo -ls
 mkdir -p /tmp/foo && echo '{ "test": "blah" }' > /tmp/foo/test.json
 ```
 
+ * Post-command contents of: /tmp/foo/test.json
+
+```
+{ "test": "blah" }
+
+```
+
   * Validation Test: file_exist
     * Valid: **True**
     * Messages: File /tmp/foo/test.json exists
@@ -260,7 +267,7 @@ ls -l /tmp/foo /does_not_exist
 ```
 /tmp/foo:
 total 8
--rw-r--r--  1 jolsen  wheel  19 May  2 07:48 test.json
+-rw-r--r--  1 jolsen  wheel  19 May  2 07:52 test.json
 ```
 
 ```STDERR
@@ -280,4 +287,4 @@ ls: /does_not_exist: No such file or directory
   * The tests specified in 'validtests' are methods defined in the MDTest class
   * Any test specified just needs to exist as a method that begins with 'val_test_'. The current section is passed into each test method, so adding new definitions that tests rely on is rather easy.
 
-###### generated by: `md_doctester v1.4.3`, date: Fri May  2 07:48:06 2014 EDT, Contact info: **Jim Olsen <jim@lifehack.com>**
+###### generated by: `md_doctester v1.4.4`, date: Fri May  2 07:52:00 2014 EDT, Contact info: **Jim Olsen <jim@lifehack.com>**
