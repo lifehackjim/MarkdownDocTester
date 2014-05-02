@@ -1,6 +1,28 @@
 Markdown Doc Tester Readme
 ===========================
 
+---------------------------
+Table of contents:
+
+  * [Markdown Doc Tester Usage](#markdown_doc_tester_usage)
+  * [Reason for MDT](#reason_for_mdt)
+  * [Examples](#examples)
+    * [Adding notes](#adding_notes)
+    * [Displaying an example command but not running it](#displaying_an_example_command_but_not_running_it)
+    * [Running a command](#running_a_command)
+    * [Running a command and checking the exit code is 0](#running_a_command_and_checking_the_exit_code_is_0)
+    * [Running a command and checking the exit code is NOT 0](#running_a_command_and_checking_the_exit_code_is_not_0)
+    * [Checking that a file exists after running a command](#checking_that_a_file_exists_after_running_a_command)
+    * [Checking that a file match is found after running a command](#checking_that_a_file_match_is_found_after_running_a_command)
+    * [Checking that a file match is NOT found after running a command](#checking_that_a_file_match_is_not_found_after_running_a_command)
+    * [Performing cleanup BEFORE running a command](#performing_cleanup_before_running_a_command)
+    * [Creating Content BEFORE running a command](#creating_content_before_running_a_command)
+    * [Showing Content AFTER running a command](#showing_content_after_running_a_command)
+    * [Invalid test results](#invalid_test_results)
+  * [Adding more validtests](#adding_more_validtests)
+
+---------------------------
+
 # Markdown Doc Tester Usage
 
 ```bash
@@ -26,7 +48,7 @@ optional arguments:
                         times an hour). (default: )
   -o OUTDIR, --outdir OUTDIR
                         The output directory for the Markdown and HTML files
-                        (default: /tmp/2014_05_02-08_12_37)
+                        (default: /tmp/2014_05_02-09_01_19)
   -l [LOGFILE], --log [LOGFILE]
                         Save the log to a file (if no file supplied, will be
                         saved to $date.$prog.log) (default: False)
@@ -124,9 +146,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87167430        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 08:12 /tmp/foo
-87167622        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 08:12 /tmp/foo/test
-87167431        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 08:10 /tmp/foo/test.json
+87169601        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:01 /tmp/foo
+87169616        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 09:01 /tmp/foo/test
+87169602        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:00 /tmp/foo/test.json
 ```
 
   * Validation Test: file_exist
@@ -146,9 +168,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87167430        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 08:12 /tmp/foo
-87167622        8 -rw-r--r--    1 jolsen           wheel                  30 May  2 08:12 /tmp/foo/test
-87167431        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 08:10 /tmp/foo/test.json
+87169601        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:01 /tmp/foo
+87169616        8 -rw-r--r--    1 jolsen           wheel                  30 May  2 09:01 /tmp/foo/test
+87169602        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:00 /tmp/foo/test.json
 ```
 
   * Validation Test: filematch
@@ -168,9 +190,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87167430        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 08:12 /tmp/foo
-87167622        8 -rw-r--r--    1 jolsen           wheel                  45 May  2 08:12 /tmp/foo/test
-87167431        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 08:10 /tmp/foo/test.json
+87169601        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:01 /tmp/foo
+87169616        8 -rw-r--r--    1 jolsen           wheel                  45 May  2 09:01 /tmp/foo/test
+87169602        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:00 /tmp/foo/test.json
 ```
 
   * Validation Test: nofilematch
@@ -191,8 +213,8 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87167623        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 08:12 /tmp/foo
-87167624        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 08:12 /tmp/foo/test
+87169617        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 09:01 /tmp/foo
+87169618        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 09:01 /tmp/foo/test
 ```
 
   * Validation Test: exitcode
@@ -220,8 +242,8 @@ find /tmp/foo -ls
 ```
 
 ```
-87167625        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 08:12 /tmp/foo
-87167626        8 -rw-r--r--    1 jolsen           wheel                  18 May  2 08:12 /tmp/foo/test.json
+87169619        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 09:01 /tmp/foo
+87169620        8 -rw-r--r--    1 jolsen           wheel                  18 May  2 09:01 /tmp/foo/test.json
 ```
 
   * Validation Test: file_exist
@@ -270,7 +292,7 @@ ls -l /tmp/foo /does_not_exist
 ```
 /tmp/foo:
 total 8
--rw-r--r--  1 jolsen  wheel  19 May  2 08:12 test.json
+-rw-r--r--  1 jolsen  wheel  19 May  2 09:01 test.json
 ```
 
 ```STDERR
@@ -290,4 +312,4 @@ ls: /does_not_exist: No such file or directory
   * The tests specified in 'validtests' are methods defined in the MDTest class
   * Any test specified just needs to exist as a method that begins with 'val_test_'. The current section is passed into each test method, so adding new definitions that tests rely on is rather easy.
 
-###### generated by: `md_doctester v1.4.4`, date: Fri May  2 08:12:37 2014 EDT, Contact info: **Jim Olsen <jim@lifehack.com>**
+###### generated by: `md_doctester v1.4.4`, date: Fri May  2 09:01:19 2014 EDT, Contact info: **Jim Olsen <jim@lifehack.com>**
