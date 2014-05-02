@@ -16,6 +16,7 @@ cd $mydir
 
 rm -f "$logfile"
 
+echo "Running: md_doctester.py -f \"md_doctester.ini\" -o \"$outdir\" -l \"$logfile\""
 md_doctester.py -f "md_doctester.ini" -o "$outdir" -l "$logfile"
 
 cp $outdir/md_doctester_readme.md ../README.md

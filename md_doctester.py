@@ -678,7 +678,7 @@ class MDTest():
                 continue
             contentid = k.replace(self.AFTERFN, '')
             typekey = '{}{}'.format(self.AFTERTYPE, contentid)
-            ctype = sectdict.get(typekey, '')
+            ctype = sectconf.get(typekey, '')
             try:
                 ctext = load_utf8(v)
             except:
@@ -687,8 +687,13 @@ class MDTest():
                 try:
                     ctext = json.loads(ctext)
                     ctext = jsonify(ctext)
+                    logging.debug((
+                        "Aftercontent type JSON rendered! {}"
+                    ).format(ctext))
                 except:
-                    pass
+                    logging.debug((
+                        "Aftercontent type JSON unable to render! {}"
+                    ).format(ctext), exc_info=True)
             logging.debug((
                 "Found aftercontent in section {}: filename {}, type {}, "
                 "text {}"

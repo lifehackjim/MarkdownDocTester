@@ -781,7 +781,7 @@ optional arguments:
                         times an hour). (default: )
   -o OUTDIR, --outdir OUTDIR
                         The output directory for the Markdown and HTML files
-                        (default: /tmp/2014_05_02-07_59_53)
+                        (default: /tmp/2014_05_02-08_10_21)
   -l [LOGFILE], --log [LOGFILE]
                         Save the log to a file (if no file supplied, will be
                         saved to $date.$prog.log) (default: False)
@@ -893,9 +893,9 @@ optional arguments:
 </ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87166501        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 07:59 /tmp/foo
-87167027        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 07:59 /tmp/foo/test
-87166502        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 07:52 /tmp/foo/test.json
+<pre><code>87167418        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 08:10 /tmp/foo
+87167425        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 08:10 /tmp/foo/test
+87167419        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 08:10 /tmp/foo/test.json
 </code></pre>
 
 <ul>
@@ -925,9 +925,9 @@ optional arguments:
 </ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87166501        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 07:59 /tmp/foo
-87167027        8 -rw-r--r--    1 jolsen           wheel                  30 May  2 07:59 /tmp/foo/test
-87166502        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 07:52 /tmp/foo/test.json
+<pre><code>87167418        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 08:10 /tmp/foo
+87167425        8 -rw-r--r--    1 jolsen           wheel                  30 May  2 08:10 /tmp/foo/test
+87167419        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 08:10 /tmp/foo/test.json
 </code></pre>
 
 <ul>
@@ -957,9 +957,9 @@ optional arguments:
 </ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87166501        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 07:59 /tmp/foo
-87167027        8 -rw-r--r--    1 jolsen           wheel                  45 May  2 07:59 /tmp/foo/test
-87166502        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 07:52 /tmp/foo/test.json
+<pre><code>87167418        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 08:10 /tmp/foo
+87167425        8 -rw-r--r--    1 jolsen           wheel                  45 May  2 08:10 /tmp/foo/test
+87167419        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 08:10 /tmp/foo/test.json
 </code></pre>
 
 <ul>
@@ -992,8 +992,8 @@ optional arguments:
 </ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87167028        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 07:59 /tmp/foo
-87167029        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 07:59 /tmp/foo/test
+<pre><code>87167426        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 08:10 /tmp/foo
+87167427        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 08:10 /tmp/foo/test
 </code></pre>
 
 <ul>
@@ -1028,8 +1028,8 @@ optional arguments:
 <div class="highlight highlight-bash"><pre>find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87167030        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 07:59 /tmp/foo
-87167031        8 -rw-r--r--    1 jolsen           wheel                  18 May  2 07:59 /tmp/foo/test.json
+<pre><code>87167428        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 08:10 /tmp/foo
+87167429        8 -rw-r--r--    1 jolsen           wheel                  18 May  2 08:10 /tmp/foo/test.json
 </code></pre>
 
 <ul>
@@ -1064,9 +1064,10 @@ optional arguments:
 
 <ul>
 <li>Post-command contents of: /tmp/foo/test.json</li>
-</ul><pre><code>{ "test": "blah" }
-
-</code></pre>
+</ul><div class="highlight highlight-json"><pre><span class="p">{</span>
+    <span class="nt">"test"</span><span class="p">:</span> <span class="s2">"blah"</span>
+<span class="p">}</span>
+</pre></div>
 
 <ul>
 <li>
@@ -1097,7 +1098,7 @@ optional arguments:
 
 <pre><code>/tmp/foo:
 total 8
--rw-r--r--  1 jolsen  wheel  19 May  2 07:59 test.json
+-rw-r--r--  1 jolsen  wheel  19 May  2 08:10 test.json
 </code></pre>
 
 <pre lang="STDERR"><code>ls: /does_not_exist: No such file or directory
@@ -1129,6 +1130,6 @@ total 8
 <li>The tests specified in 'validtests' are methods defined in the MDTest class</li>
 <li>Any test specified just needs to exist as a method that begins with 'val_test_'. The current section is passed into each test method, so adding new definitions that tests rely on is rather easy.</li>
 </ul><h6>
-<a name="user-content-generated-by-md_doctester-v144-date-fri-may--2-075953-2014-edt-contact-info-jim-olsen-jimlifehackcom" class="anchor" href="#generated-by-md_doctester-v144-date-fri-may--2-075953-2014-edt-contact-info-jim-olsen-jimlifehackcom"><span class="octicon octicon-link"></span></a>generated by: <code>md_doctester v1.4.4</code>, date: Fri May  2 07:59:53 2014 EDT, Contact info: <strong>Jim Olsen <a href="mailto:jim@lifehack.com">jim@lifehack.com</a></strong>
+<a name="user-content-generated-by-md_doctester-v144-date-fri-may--2-081022-2014-edt-contact-info-jim-olsen-jimlifehackcom" class="anchor" href="#generated-by-md_doctester-v144-date-fri-may--2-081022-2014-edt-contact-info-jim-olsen-jimlifehackcom"><span class="octicon octicon-link"></span></a>generated by: <code>md_doctester v1.4.4</code>, date: Fri May  2 08:10:22 2014 EDT, Contact info: <strong>Jim Olsen <a href="mailto:jim@lifehack.com">jim@lifehack.com</a></strong>
 </h6>
 </body></html>
