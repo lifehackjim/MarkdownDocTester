@@ -757,39 +757,39 @@ body .task-list{
 <h1>
 <a name="user-content-markdown-doc-tester-readme" class="anchor" href="#markdown-doc-tester-readme"><span class="octicon octicon-link"></span></a>Markdown Doc Tester Readme</h1>
 
-<hr><p>Table of contents:</p>
+<hr><p><a name="user-content-toc">Table of contents:</a></p>
 
 <ul>
-<li><a href="#markdown-doc-tester-usage">Markdown Doc Tester Usage</a></li>
-<li><a href="#reason-for-mdt">Reason for MDT</a></li>
-<li><a href="#config-section-definitions">Config Section Definitions</a></li>
-<li><a href="#section-definitions">Section Definitions</a></li>
+<li><a href="#user-content-markdown-doc-tester-usage">Markdown Doc Tester Usage</a></li>
+<li><a href="#user-content-reason-for-mdt">Reason for MDT</a></li>
+<li><a href="#user-content-config-section-definitions">Config Section Definitions</a></li>
+<li><a href="#user-content-section-definitions">Section Definitions</a></li>
 <li>
-<a href="#examples">Examples</a>
+<a href="#user-content-examples">Examples</a>
 
 <ul>
-<li><a href="#adding-notes">Adding notes</a></li>
-<li><a href="#displaying-an-example-command-but-not-running-it">Displaying an example command but not running it</a></li>
-<li><a href="#running-a-command">Running a command</a></li>
-<li><a href="#running-a-command-and-checking-the-exit-code-is-0">Running a command and checking the exit code is 0</a></li>
-<li><a href="#running-a-command-and-checking-the-exit-code-is-not-0">Running a command and checking the exit code is NOT 0</a></li>
-<li><a href="#checking-that-a-file-exists-after-running-a-command">Checking that a file exists after running a command</a></li>
-<li><a href="#checking-that-a-file-match-is-found-after-running-a-command">Checking that a file match is found after running a command</a></li>
-<li><a href="#checking-that-a-file-match-is-not-found-after-running-a-command">Checking that a file match is NOT found after running a command</a></li>
-<li><a href="#performing-cleanup-before-running-a-command">Performing cleanup BEFORE running a command</a></li>
-<li><a href="#creating-content-before-running-a-command">Creating Content BEFORE running a command</a></li>
-<li><a href="#showing-content-after-running-a-command">Showing Content AFTER running a command</a></li>
-<li><a href="#invalid-test-results">Invalid test results</a></li>
+<li><a href="#user-content-adding-notes">Adding notes</a></li>
+<li><a href="#user-content-displaying-an-example-command-but-not-running-it">Displaying an example command but not running it</a></li>
+<li><a href="#user-content-running-a-command">Running a command</a></li>
+<li><a href="#user-content-running-a-command-and-checking-the-exit-code-is-0">Running a command and checking the exit code is 0</a></li>
+<li><a href="#user-content-running-a-command-and-checking-the-exit-code-is-not-0">Running a command and checking the exit code is NOT 0</a></li>
+<li><a href="#user-content-checking-that-a-file-exists-after-running-a-command">Checking that a file exists after running a command</a></li>
+<li><a href="#user-content-checking-that-a-file-match-is-found-after-running-a-command">Checking that a file match is found after running a command</a></li>
+<li><a href="#user-content-checking-that-a-file-match-is-not-found-after-running-a-command">Checking that a file match is NOT found after running a command</a></li>
+<li><a href="#user-content-performing-cleanup-before-running-a-command">Performing cleanup BEFORE running a command</a></li>
+<li><a href="#user-content-creating-content-before-running-a-command">Creating Content BEFORE running a command</a></li>
+<li><a href="#user-content-showing-content-after-running-a-command">Showing Content AFTER running a command</a></li>
+<li><a href="#user-content-invalid-test-results">Invalid test results</a></li>
 </ul>
 </li>
-<li><a href="#adding-more-validtests">Adding more validtests</a></li>
+<li><a href="#user-content-adding-more-validtests">Adding more validtests</a></li>
 </ul><hr><h1>
 <a name="user-content-markdown-doc-tester-usage" class="anchor" href="#markdown-doc-tester-usage"><span class="octicon octicon-link"></span></a>Markdown Doc Tester Usage</h1>
 
 <div class="highlight highlight-bash"><pre>md_doctester.py -h
 </pre></div>
 
-<pre><code>md_doctester v1.4.4 by Jim Olsen (jim@lifehack.com)
+<pre><code>md_doctester v1.4.5 by Jim Olsen (jim@lifehack.com)
 usage: md_doctester.py [-h] -f FILE [-a GITHUB_TOKEN] [-o OUTDIR]
                        [-l [LOGFILE]] [-s] [-c] [-t TITLE] [-v]
 
@@ -807,7 +807,7 @@ optional arguments:
                         times an hour). (default: )
   -o OUTDIR, --outdir OUTDIR
                         The output directory for the Markdown and HTML files
-                        (default: /tmp/2014_05_02-09_35_18)
+                        (default: /tmp/2014_05_05-14_31_38)
   -l [LOGFILE], --log [LOGFILE]
                         Save the log to a file (if no file supplied, will be
                         saved to $date.$prog.log) (default: False)
@@ -829,7 +829,9 @@ optional arguments:
 <li>Messages: Exit Code is 0</li>
 </ul>
 </li>
-</ul><h1>
+</ul><p><a href="#user-content-toc">TOC</a></p>
+
+<h1>
 <a name="user-content-reason-for-mdt" class="anchor" href="#reason-for-mdt"><span class="octicon octicon-link"></span></a>Reason for MDT</h1>
 
 <ul>
@@ -837,7 +839,9 @@ optional arguments:
 <li>I wanted a quick and simple way to create documentation for the myriad of scripts I write during the course of my work.</li>
 <li>I wanted documentation in both HTML and markdown format.</li>
 <li>I also wanted to be able to test my scripts in a consistent manner.</li>
-</ul><h1>
+</ul><p><a href="#user-content-toc">TOC</a></p>
+
+<h1>
 <a name="user-content-config-section-definitions" class="anchor" href="#config-section-definitions"><span class="octicon octicon-link"></span></a>Config Section Definitions</h1>
 
 <ul>
@@ -849,7 +853,9 @@ optional arguments:
 <li>contact: string - contact info to include in generation string at bottom of doc. if not supplied, local unix username will be inserted instead</li>
 <li>title: string - Title to use for HTML document. if not supplied, will be generated from the basename of the ini file (minus extension)</li>
 <li>outdir: string - The directory to save this files generated docs. If not supplied, defaults to /tmp/$date (or whatever was supplied on command line)</li>
-</ul><h1>
+</ul><p><a href="#user-content-toc">TOC</a></p>
+
+<h1>
 <a name="user-content-section-definitions" class="anchor" href="#section-definitions"><span class="octicon octicon-link"></span></a>Section Definitions</h1>
 
 <ul>
@@ -878,26 +884,42 @@ optional arguments:
 <li>aftertypeN: string - the type of content for filename for contentid N</li>
 </ul>
 </li>
-</ul><h1>
+</ul><p><a href="#user-content-toc">TOC</a></p>
+
+<h1>
 <a name="user-content-examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h1>
 
 <ul>
 <li>This readme was generated with MDT, for one example.</li>
 <li>See <a href="example/md_doctester.ini">example/md_doctester.ini</a> for how this README was generated</li>
 <li>See <a href="example/build.sh">example/build.sh</a> for a script that will build markdown and HTML documentation for all *.ini files in example/</li>
-</ul><h2>
+</ul><p><a href="#user-content-toc">TOC</a></p>
+
+<h2>
 <a name="user-content-adding-notes" class="anchor" href="#adding-notes"><span class="octicon octicon-link"></span></a>Adding notes</h2>
 
 <ul>
 <li>Just include a definition that starts with 'notes'</li>
 <li>You can define multiple notes, they just need to be named differently (but all must start with 'notes')</li>
-</ul><h2>
+<li>If you want to link to an anchor in the same document, you need to pre-pend the link with "user-content-", convert the heading to all lower case, and replace spaces with dashes. for instance, these links will link to the heading Section Definitions:
+
+<ul>
+<li><a href="#user-content-section-definitions">#user-content-section-definitions</a></li>
+<li><a href="#user-content-section-definitions">Section Definitions</a></li>
+<li><a href="#user-content-section-definitions">whatever text you want the link to show here</a></li>
+</ul>
+</li>
+</ul><p><a href="#user-content-toc">TOC</a></p>
+
+<h2>
 <a name="user-content-displaying-an-example-command-but-not-running-it" class="anchor" href="#displaying-an-example-command-but-not-running-it"><span class="octicon octicon-link"></span></a>Displaying an example command but not running it</h2>
 
 <ul>
 <li>If you include a definition that contains 'norun: true', the command will not be run, just displayed in a bash code block</li>
 </ul><div class="highlight highlight-bash"><pre>example_command -a -b -c <span class="s1">'FILENAME'</span> -u <span class="s2">"$USER"</span>
 </pre></div>
+
+<p><a href="#user-content-toc">TOC</a></p>
 
 <h2>
 <a name="user-content-running-a-command" class="anchor" href="#running-a-command"><span class="octicon octicon-link"></span></a>Running a command</h2>
@@ -909,6 +931,8 @@ optional arguments:
 
 <pre><code>Darwin Calabacita.local 13.1.0 Darwin Kernel Version 13.1.0: Wed Apr  2 23:52:02 PDT 2014; root:xnu-2422.92.1~2/RELEASE_X86_64 x86_64
 </code></pre>
+
+<p><a href="#user-content-toc">TOC</a></p>
 
 <h2>
 <a name="user-content-running-a-command-and-checking-the-exit-code-is-0" class="anchor" href="#running-a-command-and-checking-the-exit-code-is-0"><span class="octicon octicon-link"></span></a>Running a command and checking the exit code is 0</h2>
@@ -931,7 +955,9 @@ optional arguments:
 <li>Messages: Exit Code is 0</li>
 </ul>
 </li>
-</ul><h2>
+</ul><p><a href="#user-content-toc">TOC</a></p>
+
+<h2>
 <a name="user-content-running-a-command-and-checking-the-exit-code-is-not-0" class="anchor" href="#running-a-command-and-checking-the-exit-code-is-not-0"><span class="octicon octicon-link"></span></a>Running a command and checking the exit code is NOT 0</h2>
 
 <ul>
@@ -952,7 +978,9 @@ optional arguments:
 <li>Messages: Exit Code is not 5</li>
 </ul>
 </li>
-</ul><h2>
+</ul><p><a href="#user-content-toc">TOC</a></p>
+
+<h2>
 <a name="user-content-checking-that-a-file-exists-after-running-a-command" class="anchor" href="#checking-that-a-file-exists-after-running-a-command"><span class="octicon octicon-link"></span></a>Checking that a file exists after running a command</h2>
 
 <ul>
@@ -960,9 +988,9 @@ optional arguments:
 </ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87170915        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:35 /tmp/foo
-87170947        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 09:35 /tmp/foo/test
-87170916        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:34 /tmp/foo/test.json
+<pre><code>87366485        0 drwxr-xr-x    4 jolsen           wheel                 136 May  5 14:31 /tmp/foo
+87366513        8 -rw-r--r--    1 jolsen           wheel                  15 May  5 14:31 /tmp/foo/test
+87366486        8 -rw-r--r--    1 jolsen           wheel                  19 May  5 14:31 /tmp/foo/test.json
 </code></pre>
 
 <ul>
@@ -984,7 +1012,9 @@ optional arguments:
 <li>Messages: File /tmp/foo/test exists</li>
 </ul>
 </li>
-</ul><h2>
+</ul><p><a href="#user-content-toc">TOC</a></p>
+
+<h2>
 <a name="user-content-checking-that-a-file-match-is-found-after-running-a-command" class="anchor" href="#checking-that-a-file-match-is-found-after-running-a-command"><span class="octicon octicon-link"></span></a>Checking that a file match is found after running a command</h2>
 
 <ul>
@@ -992,9 +1022,9 @@ optional arguments:
 </ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87170915        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:35 /tmp/foo
-87170947        8 -rw-r--r--    1 jolsen           wheel                  30 May  2 09:35 /tmp/foo/test
-87170916        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:34 /tmp/foo/test.json
+<pre><code>87366485        0 drwxr-xr-x    4 jolsen           wheel                 136 May  5 14:31 /tmp/foo
+87366513        8 -rw-r--r--    1 jolsen           wheel                  30 May  5 14:31 /tmp/foo/test
+87366486        8 -rw-r--r--    1 jolsen           wheel                  19 May  5 14:31 /tmp/foo/test.json
 </code></pre>
 
 <ul>
@@ -1016,7 +1046,9 @@ optional arguments:
 <li>Messages: File matches found for /tmp/<em>test</em>: ['/tmp/foo/test', '/tmp/foo/test.json']</li>
 </ul>
 </li>
-</ul><h2>
+</ul><p><a href="#user-content-toc">TOC</a></p>
+
+<h2>
 <a name="user-content-checking-that-a-file-match-is-not-found-after-running-a-command" class="anchor" href="#checking-that-a-file-match-is-not-found-after-running-a-command"><span class="octicon octicon-link"></span></a>Checking that a file match is NOT found after running a command</h2>
 
 <ul>
@@ -1024,9 +1056,9 @@ optional arguments:
 </ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87170915        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:35 /tmp/foo
-87170947        8 -rw-r--r--    1 jolsen           wheel                  45 May  2 09:35 /tmp/foo/test
-87170916        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:34 /tmp/foo/test.json
+<pre><code>87366485        0 drwxr-xr-x    4 jolsen           wheel                 136 May  5 14:31 /tmp/foo
+87366513        8 -rw-r--r--    1 jolsen           wheel                  45 May  5 14:31 /tmp/foo/test
+87366486        8 -rw-r--r--    1 jolsen           wheel                  19 May  5 14:31 /tmp/foo/test.json
 </code></pre>
 
 <ul>
@@ -1049,7 +1081,9 @@ optional arguments:
 </li>
 </ul>
 </li>
-</ul><h2>
+</ul><p><a href="#user-content-toc">TOC</a></p>
+
+<h2>
 <a name="user-content-performing-cleanup-before-running-a-command" class="anchor" href="#performing-cleanup-before-running-a-command"><span class="octicon octicon-link"></span></a>Performing cleanup BEFORE running a command</h2>
 
 <ul>
@@ -1059,8 +1093,8 @@ optional arguments:
 </ul><div class="highlight highlight-bash"><pre>mkdir -p /tmp/foo <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"this is a test"</span> &gt;&gt; /tmp/foo/test <span class="o">&amp;&amp;</span> find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87170948        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 09:35 /tmp/foo
-87170949        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 09:35 /tmp/foo/test
+<pre><code>87366514        0 drwxr-xr-x    3 jolsen           wheel                 102 May  5 14:31 /tmp/foo
+87366515        8 -rw-r--r--    1 jolsen           wheel                  15 May  5 14:31 /tmp/foo/test
 </code></pre>
 
 <ul>
@@ -1072,7 +1106,9 @@ optional arguments:
 <li>Messages: Exit Code is 0</li>
 </ul>
 </li>
-</ul><h2>
+</ul><p><a href="#user-content-toc">TOC</a></p>
+
+<h2>
 <a name="user-content-creating-content-before-running-a-command" class="anchor" href="#creating-content-before-running-a-command"><span class="octicon octicon-link"></span></a>Creating Content BEFORE running a command</h2>
 
 <ul>
@@ -1095,8 +1131,8 @@ optional arguments:
 <div class="highlight highlight-bash"><pre>find /tmp/foo -ls
 </pre></div>
 
-<pre><code>87170950        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 09:35 /tmp/foo
-87170951        8 -rw-r--r--    1 jolsen           wheel                  18 May  2 09:35 /tmp/foo/test.json
+<pre><code>87366516        0 drwxr-xr-x    3 jolsen           wheel                 102 May  5 14:31 /tmp/foo
+87366517        8 -rw-r--r--    1 jolsen           wheel                  18 May  5 14:31 /tmp/foo/test.json
 </code></pre>
 
 <ul>
@@ -1118,7 +1154,9 @@ optional arguments:
 <li>Messages: File /tmp/foo/test.json exists</li>
 </ul>
 </li>
-</ul><h2>
+</ul><p><a href="#user-content-toc">TOC</a></p>
+
+<h2>
 <a name="user-content-showing-content-after-running-a-command" class="anchor" href="#showing-content-after-running-a-command"><span class="octicon octicon-link"></span></a>Showing Content AFTER running a command</h2>
 
 <ul>
@@ -1155,7 +1193,9 @@ optional arguments:
 <li>Messages: File /tmp/foo/test.json exists</li>
 </ul>
 </li>
-</ul><h2>
+</ul><p><a href="#user-content-toc">TOC</a></p>
+
+<h2>
 <a name="user-content-invalid-test-results" class="anchor" href="#invalid-test-results"><span class="octicon octicon-link"></span></a>Invalid test results</h2>
 
 <ul>
@@ -1165,7 +1205,7 @@ optional arguments:
 
 <pre><code>/tmp/foo:
 total 8
--rw-r--r--  1 jolsen  wheel  19 May  2 09:35 test.json
+-rw-r--r--  1 jolsen  wheel  19 May  5 14:31 test.json
 </code></pre>
 
 <pre lang="STDERR"><code>ls: /does_not_exist: No such file or directory
@@ -1190,13 +1230,17 @@ total 8
 <li>Messages: File /does_not_exist does not exist</li>
 </ul>
 </li>
-</ul><h1>
+</ul><p><a href="#user-content-toc">TOC</a></p>
+
+<h1>
 <a name="user-content-adding-more-validtests" class="anchor" href="#adding-more-validtests"><span class="octicon octicon-link"></span></a>Adding more validtests</h1>
 
 <ul>
 <li>The tests specified in 'validtests' are methods defined in the MDTest class</li>
 <li>Any test specified just needs to exist as a method that begins with 'val_test_'. The current section is passed into each test method, so adding new definitions that tests rely on is rather easy.</li>
-</ul><h6>
-<a name="user-content-generated-by-md_doctester-v144-date-fri-may--2-093518-2014-edt-contact-info-jim-olsen-jimlifehackcom" class="anchor" href="#generated-by-md_doctester-v144-date-fri-may--2-093518-2014-edt-contact-info-jim-olsen-jimlifehackcom"><span class="octicon octicon-link"></span></a>generated by: <code>md_doctester v1.4.4</code>, date: Fri May  2 09:35:18 2014 EDT, Contact info: <strong>Jim Olsen <a href="mailto:jim@lifehack.com">jim@lifehack.com</a></strong>
+</ul><p><a href="#user-content-toc">TOC</a></p>
+
+<h6>
+<a name="user-content-generated-by-md_doctester-v145-date-mon-may--5-143138-2014-edt-contact-info-jim-olsen-jimlifehackcom" class="anchor" href="#generated-by-md_doctester-v145-date-mon-may--5-143138-2014-edt-contact-info-jim-olsen-jimlifehackcom"><span class="octicon octicon-link"></span></a>generated by: <code>md_doctester v1.4.5</code>, date: Mon May  5 14:31:38 2014 EDT, Contact info: <strong>Jim Olsen <a href="mailto:jim@lifehack.com">jim@lifehack.com</a></strong>
 </h6>
 </body></html>

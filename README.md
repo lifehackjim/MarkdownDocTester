@@ -2,26 +2,26 @@ Markdown Doc Tester Readme
 ===========================
 
 ---------------------------
-Table of contents:
+<a name='toc'>Table of contents:</a>
 
-  * [Markdown Doc Tester Usage](#markdown-doc-tester-usage)
-  * [Reason for MDT](#reason-for-mdt)
-  * [Config Section Definitions](#config-section-definitions)
-  * [Section Definitions](#section-definitions)
-  * [Examples](#examples)
-    * [Adding notes](#adding-notes)
-    * [Displaying an example command but not running it](#displaying-an-example-command-but-not-running-it)
-    * [Running a command](#running-a-command)
-    * [Running a command and checking the exit code is 0](#running-a-command-and-checking-the-exit-code-is-0)
-    * [Running a command and checking the exit code is NOT 0](#running-a-command-and-checking-the-exit-code-is-not-0)
-    * [Checking that a file exists after running a command](#checking-that-a-file-exists-after-running-a-command)
-    * [Checking that a file match is found after running a command](#checking-that-a-file-match-is-found-after-running-a-command)
-    * [Checking that a file match is NOT found after running a command](#checking-that-a-file-match-is-not-found-after-running-a-command)
-    * [Performing cleanup BEFORE running a command](#performing-cleanup-before-running-a-command)
-    * [Creating Content BEFORE running a command](#creating-content-before-running-a-command)
-    * [Showing Content AFTER running a command](#showing-content-after-running-a-command)
-    * [Invalid test results](#invalid-test-results)
-  * [Adding more validtests](#adding-more-validtests)
+  * [Markdown Doc Tester Usage](#user-content-markdown-doc-tester-usage)
+  * [Reason for MDT](#user-content-reason-for-mdt)
+  * [Config Section Definitions](#user-content-config-section-definitions)
+  * [Section Definitions](#user-content-section-definitions)
+  * [Examples](#user-content-examples)
+    * [Adding notes](#user-content-adding-notes)
+    * [Displaying an example command but not running it](#user-content-displaying-an-example-command-but-not-running-it)
+    * [Running a command](#user-content-running-a-command)
+    * [Running a command and checking the exit code is 0](#user-content-running-a-command-and-checking-the-exit-code-is-0)
+    * [Running a command and checking the exit code is NOT 0](#user-content-running-a-command-and-checking-the-exit-code-is-not-0)
+    * [Checking that a file exists after running a command](#user-content-checking-that-a-file-exists-after-running-a-command)
+    * [Checking that a file match is found after running a command](#user-content-checking-that-a-file-match-is-found-after-running-a-command)
+    * [Checking that a file match is NOT found after running a command](#user-content-checking-that-a-file-match-is-not-found-after-running-a-command)
+    * [Performing cleanup BEFORE running a command](#user-content-performing-cleanup-before-running-a-command)
+    * [Creating Content BEFORE running a command](#user-content-creating-content-before-running-a-command)
+    * [Showing Content AFTER running a command](#user-content-showing-content-after-running-a-command)
+    * [Invalid test results](#user-content-invalid-test-results)
+  * [Adding more validtests](#user-content-adding-more-validtests)
 
 ---------------------------
 
@@ -32,7 +32,7 @@ md_doctester.py -h
 ```
 
 ```
-md_doctester v1.4.4 by Jim Olsen (jim@lifehack.com)
+md_doctester v1.4.5 by Jim Olsen (jim@lifehack.com)
 usage: md_doctester.py [-h] -f FILE [-a GITHUB_TOKEN] [-o OUTDIR]
                        [-l [LOGFILE]] [-s] [-c] [-t TITLE] [-v]
 
@@ -50,7 +50,7 @@ optional arguments:
                         times an hour). (default: )
   -o OUTDIR, --outdir OUTDIR
                         The output directory for the Markdown and HTML files
-                        (default: /tmp/2014_05_02-09_35_18)
+                        (default: /tmp/2014_05_05-14_31_38)
   -l [LOGFILE], --log [LOGFILE]
                         Save the log to a file (if no file supplied, will be
                         saved to $date.$prog.log) (default: False)
@@ -67,12 +67,22 @@ optional arguments:
     * Valid: **True**
     * Messages: Exit Code is 0
 
+
+
+[TOC](#user-content-toc)
+
+
 # Reason for MDT
 
   * [Readme Driven Development](http://tom.preston-werner.com/2010/08/23/readme-driven-development.html)
   * I wanted a quick and simple way to create documentation for the myriad of scripts I write during the course of my work.
   * I wanted documentation in both HTML and markdown format.
   * I also wanted to be able to test my scripts in a consistent manner.
+
+
+
+[TOC](#user-content-toc)
+
 
 # Config Section Definitions
 
@@ -84,6 +94,11 @@ optional arguments:
   * contact: string - contact info to include in generation string at bottom of doc. if not supplied, local unix username will be inserted instead
   * title: string - Title to use for HTML document. if not supplied, will be generated from the basename of the ini file (minus extension)
   * outdir: string - The directory to save this files generated docs. If not supplied, defaults to /tmp/$date (or whatever was supplied on command line)
+
+
+
+[TOC](#user-content-toc)
+
 
 # Section Definitions
 
@@ -105,16 +120,35 @@ optional arguments:
     * afterfilenameN: string - the filename to output, where N is a contentid
     * aftertypeN: string - the type of content for filename for contentid N
 
+
+
+[TOC](#user-content-toc)
+
+
 # Examples
 
   * This readme was generated with MDT, for one example.
   * See [example/md_doctester.ini](example/md_doctester.ini) for how this README was generated
   * See [example/build.sh](example/build.sh) for a script that will build markdown and HTML documentation for all *.ini files in example/
 
+
+
+[TOC](#user-content-toc)
+
+
 ## Adding notes
 
   * Just include a definition that starts with 'notes'
   * You can define multiple notes, they just need to be named differently (but all must start with 'notes')
+  * If you want to link to an anchor in the same document, you need to pre-pend the link with "user-content-", convert the heading to all lower case, and replace spaces with dashes. for instance, these links will link to the heading Section Definitions:
+    * [#user-content-section-definitions](#user-content-section-definitions)
+    * [Section Definitions](#user-content-section-definitions)
+    * [whatever text you want the link to show here](#user-content-section-definitions)
+
+
+
+[TOC](#user-content-toc)
+
 
 ## Displaying an example command but not running it
 
@@ -123,6 +157,11 @@ optional arguments:
 ```bash
 example_command -a -b -c 'FILENAME' -u "$USER"
 ```
+
+
+
+[TOC](#user-content-toc)
+
 
 ## Running a command
 
@@ -135,6 +174,11 @@ uname -a
 ```
 Darwin Calabacita.local 13.1.0 Darwin Kernel Version 13.1.0: Wed Apr  2 23:52:02 PDT 2014; root:xnu-2422.92.1~2/RELEASE_X86_64 x86_64
 ```
+
+
+
+[TOC](#user-content-toc)
+
 
 ## Running a command and checking the exit code is 0
 
@@ -153,6 +197,11 @@ Python 2.7.5
     * Valid: **True**
     * Messages: Exit Code is 0
 
+
+
+[TOC](#user-content-toc)
+
+
 ## Running a command and checking the exit code is NOT 0
 
   * If you include a definition 'validtests' and specify 'notexitcode' as one of the tests, it will by default check to see if the command exits with an exitcode that is NOT 0
@@ -170,6 +219,11 @@ Python 2.7.5
     * Valid: **True**
     * Messages: Exit Code is not 5
 
+
+
+[TOC](#user-content-toc)
+
+
 ## Checking that a file exists after running a command
 
   * If you include a definition 'validtests' and specify 'file_exist' as one of the tests, it will check that the file defined in 'file_exist' is found after running 'cmd'
@@ -179,9 +233,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87170915        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:35 /tmp/foo
-87170947        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 09:35 /tmp/foo/test
-87170916        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:34 /tmp/foo/test.json
+87366485        0 drwxr-xr-x    4 jolsen           wheel                 136 May  5 14:31 /tmp/foo
+87366513        8 -rw-r--r--    1 jolsen           wheel                  15 May  5 14:31 /tmp/foo/test
+87366486        8 -rw-r--r--    1 jolsen           wheel                  19 May  5 14:31 /tmp/foo/test.json
 ```
 
   * Validation Test: exitcode
@@ -192,6 +246,11 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
     * Valid: **True**
     * Messages: File /tmp/foo/test exists
 
+
+
+[TOC](#user-content-toc)
+
+
 ## Checking that a file match is found after running a command
 
   * If you include a definition 'validtests' and specify 'filematch' as one of the tests, it will check that the wildcard defined in 'filematch' is found somewhere under the directory defined in 'dirmatch'
@@ -201,9 +260,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87170915        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:35 /tmp/foo
-87170947        8 -rw-r--r--    1 jolsen           wheel                  30 May  2 09:35 /tmp/foo/test
-87170916        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:34 /tmp/foo/test.json
+87366485        0 drwxr-xr-x    4 jolsen           wheel                 136 May  5 14:31 /tmp/foo
+87366513        8 -rw-r--r--    1 jolsen           wheel                  30 May  5 14:31 /tmp/foo/test
+87366486        8 -rw-r--r--    1 jolsen           wheel                  19 May  5 14:31 /tmp/foo/test.json
 ```
 
   * Validation Test: exitcode
@@ -214,6 +273,11 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
     * Valid: **True**
     * Messages: File matches found for /tmp/*test*: ['/tmp/foo/test', '/tmp/foo/test.json']
 
+
+
+[TOC](#user-content-toc)
+
+
 ## Checking that a file match is NOT found after running a command
 
   * If you include a definition 'validtests' and specify 'nofilematch' as one of the tests, it will check that the wildcard defined in 'filematch' is NOT found somewhere under the directory defined in 'dirmatch'
@@ -223,9 +287,9 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87170915        0 drwxr-xr-x    4 jolsen           wheel                 136 May  2 09:35 /tmp/foo
-87170947        8 -rw-r--r--    1 jolsen           wheel                  45 May  2 09:35 /tmp/foo/test
-87170916        8 -rw-r--r--    1 jolsen           wheel                  19 May  2 09:34 /tmp/foo/test.json
+87366485        0 drwxr-xr-x    4 jolsen           wheel                 136 May  5 14:31 /tmp/foo
+87366513        8 -rw-r--r--    1 jolsen           wheel                  45 May  5 14:31 /tmp/foo/test
+87366486        8 -rw-r--r--    1 jolsen           wheel                  19 May  5 14:31 /tmp/foo/test.json
 ```
 
   * Validation Test: exitcode
@@ -235,6 +299,11 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
   * Validation Test: nofilematch
     * Valid: **True**
     * Messages: No file matches found for /tmp/*test4*
+
+
+
+[TOC](#user-content-toc)
+
 
 ## Performing cleanup BEFORE running a command
 
@@ -246,13 +315,18 @@ mkdir -p /tmp/foo && echo "this is a test" >> /tmp/foo/test && find /tmp/foo -ls
 ```
 
 ```
-87170948        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 09:35 /tmp/foo
-87170949        8 -rw-r--r--    1 jolsen           wheel                  15 May  2 09:35 /tmp/foo/test
+87366514        0 drwxr-xr-x    3 jolsen           wheel                 102 May  5 14:31 /tmp/foo
+87366515        8 -rw-r--r--    1 jolsen           wheel                  15 May  5 14:31 /tmp/foo/test
 ```
 
   * Validation Test: exitcode
     * Valid: **True**
     * Messages: Exit Code is 0
+
+
+
+[TOC](#user-content-toc)
+
 
 ## Creating Content BEFORE running a command
 
@@ -275,8 +349,8 @@ find /tmp/foo -ls
 ```
 
 ```
-87170950        0 drwxr-xr-x    3 jolsen           wheel                 102 May  2 09:35 /tmp/foo
-87170951        8 -rw-r--r--    1 jolsen           wheel                  18 May  2 09:35 /tmp/foo/test.json
+87366516        0 drwxr-xr-x    3 jolsen           wheel                 102 May  5 14:31 /tmp/foo
+87366517        8 -rw-r--r--    1 jolsen           wheel                  18 May  5 14:31 /tmp/foo/test.json
 ```
 
   * Validation Test: exitcode
@@ -286,6 +360,11 @@ find /tmp/foo -ls
   * Validation Test: file_exist
     * Valid: **True**
     * Messages: File /tmp/foo/test.json exists
+
+
+
+[TOC](#user-content-toc)
+
 
 ## Showing Content AFTER running a command
 
@@ -314,6 +393,11 @@ mkdir -p /tmp/foo && echo '{ "test": "blah" }' > /tmp/foo/test.json
     * Valid: **True**
     * Messages: File /tmp/foo/test.json exists
 
+
+
+[TOC](#user-content-toc)
+
+
 ## Invalid test results
 
   * This is just to show what an invalid test looks like
@@ -325,7 +409,7 @@ ls -l /tmp/foo /does_not_exist
 ```
 /tmp/foo:
 total 8
--rw-r--r--  1 jolsen  wheel  19 May  2 09:35 test.json
+-rw-r--r--  1 jolsen  wheel  19 May  5 14:31 test.json
 ```
 
 ```STDERR
@@ -340,9 +424,19 @@ ls: /does_not_exist: No such file or directory
     * Valid: **False**
     * Messages: File /does_not_exist does not exist
 
+
+
+[TOC](#user-content-toc)
+
+
 # Adding more validtests
 
   * The tests specified in 'validtests' are methods defined in the MDTest class
   * Any test specified just needs to exist as a method that begins with 'val_test_'. The current section is passed into each test method, so adding new definitions that tests rely on is rather easy.
 
-###### generated by: `md_doctester v1.4.4`, date: Fri May  2 09:35:18 2014 EDT, Contact info: **Jim Olsen <jim@lifehack.com>**
+
+
+[TOC](#user-content-toc)
+
+
+###### generated by: `md_doctester v1.4.5`, date: Mon May  5 14:31:38 2014 EDT, Contact info: **Jim Olsen <jim@lifehack.com>**
