@@ -8,7 +8,7 @@ Last validated to work with:
 - Python 2.7.5
 '''
 __author__ = 'Jim Olsen (jim@lifehack.com)'
-__version__ = '1.4.4'
+__version__ = '1.4.5'
 
 '''
 N.B. I go through great lengths to keep this a single monolithic script.
@@ -579,6 +579,7 @@ class MDTest():
             self.md_addsectout(sectname, sectdict)
             self.md_addsectafter(sectname, sectdict)
             self.md_addvalout(sectname, sectdict)
+            self.md_addtoclink()
         self.md_addgen()
         self.mdtext = '\n'.join(self.md)
 
@@ -598,7 +599,7 @@ class MDTest():
             return
         m = (
             "---------------------------\n"
-            "Table of contents:\n"
+            "<a name='toc'>Table of contents:</a>\n"
         )
         self.md.append(m)
         for sectname in self.sections:
@@ -609,11 +610,20 @@ class MDTest():
             depth = s['SECTION'].get(self.DEPTH, self.DEPTHDEF)
             depth = "  " * int(depth)
             m = (
-                "{}* [{}](#{})"
+                "{}* [{}](#user-content-{})"
             ).format(depth, sectname, aref)
             self.md.append(m)
         m = (
             "\n---------------------------\n"
+        )
+        self.md.append(m)
+
+    def md_addtoclink(self):
+        tocbool = self.conf.get(self.TOCBOOL, self.TOCBOOLDEF)
+        if not tocbool:
+            return
+        m = (
+            "\n\n[TOC](#user-content-toc)\n\n"
         )
         self.md.append(m)
 
